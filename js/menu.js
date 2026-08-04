@@ -1,3 +1,6 @@
+console.log("Menu loaded");
+
+
 const coffee = [
 
 {
@@ -27,7 +30,6 @@ image:"https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=600"
 {
 name:"Orange Coffee",
 price:45000,
-best:true,
 image:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600"
 }
 
@@ -35,24 +37,30 @@ image:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600"
 
 
 
-const nonCoffee = [
+const menu = document.getElementById("coffee-menu");
 
-{
-name:"Matcha Latte",
-price:45000,
-image:"https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=600"
-},
 
-{
-name:"Thai Milk Tea",
-price:35000,
-image:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600"
-},
 
-{
-name:"Strawberry Milk",
-price:35000,
-image:"https://images.unsplash.com/photo-1558857563-b371033873b8?w=600"
-}
+coffee.forEach(item => {
 
-];
+
+menu.innerHTML += `
+
+<div class="card">
+
+<img src="${item.image}" alt="${item.name}">
+
+<h3>${item.name}</h3>
+
+<p>${item.price.toLocaleString()} Kip</p>
+
+<button>
+ADD
+</button>
+
+</div>
+
+`;
+
+
+});
