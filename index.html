@@ -1,101 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- MOBILE CART BUTTON -->
 
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Life Coffee Slow Bar</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-</head>
-
-
-<body>
-
-
-<header class="hero">
-
-<div class="hero-content">
-
-
-<div class="logo-box">
-
-<h1>
-LIFE COFFEE
-</h1>
-
-</div>
-
-
-<h3>
-SLOW BAR
-</h3>
-
-
-<p>
-Luang Prabang
-</p>
-
-
-</div>
-
-</header>
-
-
-
-
-
-<section id="menu">
-
-
-<h2>
-OUR MENU
-</h2>
-
-
-
-<div class="categories">
-
-
-<button onclick="showCategory('coffee')">
-Coffee
+<button class="mobile-cart-btn" onclick="openMobileCart()">
+🛒
 </button>
-
-
-<button onclick="showCategory('matcha')">
-Matcha
-</button>
-
-
-<button onclick="showCategory('noncoffee')">
-Non Coffee
-</button>
-
-
-</div>
-
-
-
-<div id="coffee-menu" class="menu-container">
-
-</div>
-
-
-
-</section>
-
-
-
 
 
 
 
 <!-- CART -->
 
-<div class="cart">
+<div class="cart" id="cart">
 
 
 <h2>
@@ -129,149 +43,10 @@ Kip
 
 
 <button onclick="openCustomer()">
+
 ORDER
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- SUGAR POPUP -->
-
-<div id="sugar-popup" class="popup">
-
-<div class="popup-box">
-
-
-<h2>
-Sugar
-</h2>
-
-
-<select id="sugar">
-
-<option>Normal sugar</option>
-
-<option>Less sugar</option>
-
-<option>No sugar</option>
-
-<option>Extra sugar</option>
-
-</select>
-
-
-<button onclick="addSugar()">
-ADD TO CART
-</button>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<!-- CUSTOMER POPUP -->
-
-
-<div id="customer-popup" class="popup">
-
-<div class="popup-box">
-
-
-<h2>
-Customer Name
-</h2>
-
-
-<input id="customer" placeholder="Name">
-
-
-<button onclick="openPayment()">
-NEXT
-</button>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-<!-- PAYMENT POPUP -->
-
-
-<div id="payment-popup" class="popup">
-
-<div class="popup-box">
-
-
-<h2>
-Payment
-</h2>
-
-
-<label>
-
-<input type="radio" name="pay" value="Cash" checked>
-
-Cash
-
-</label>
-
-
-<br>
-
-
-<label>
-
-<input type="radio" name="pay" value="BCEL QR">
-
-BCEL QR
-
-</label>
-
-
-<br><br>
-
-
-<button onclick="sendOrder()">
-
-CONFIRM
 
 </button>
 
 
 </div>
-
-</div>
-
-
-
-
-
-
-
-<script src="js/menu.js"></script>
-
-<script src="js/app.js"></script>
-
-
-</body>
-
-</html>
