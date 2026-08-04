@@ -1,194 +1,40 @@
-body{
+/* LOGO LIFE COFFEE */
+
+.logo-box{
+
+border:2px solid white;
+
+padding:20px 40px;
+
+display:inline-block;
+
+}
+
+
+.logo-box h1{
 
 margin:0;
 
-background:#000;
-
-color:white;
-
-font-family:Arial;
-
-}
-
-
-
-.hero{
-
-height:300px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-}
-
-
-
-.hero h1{
-
 font-size:70px;
 
-letter-spacing:8px;
+letter-spacing:10px;
+
+font-weight:900;
 
 }
 
 
 
-#menu{
+/* MENU TITLE */
 
-text-align:center;
+#menu h2{
 
-padding:40px;
+font-size:45px;
 
-}
+letter-spacing:5px;
 
+margin-bottom:40px;
 
-
-.menu-container{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-}
-
-
-
-.card{
-
-background:#151515;
-
-padding:25px;
-
-width:220px;
-
-border-radius:20px;
-
-}
-
-
-
-button{
-
-padding:12px 30px;
-
-border-radius:30px;
-
-border:0;
-
-cursor:pointer;
-
-}
-
-
-
-.cart{
-
-position:fixed;
-
-right:20px;
-
-top:20px;
-
-width:300px;
-
-background:#111;
-
-padding:25px;
-
-border-radius:20px;
-
-}
-
-
-
-.popup{
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-background:rgba(0,0,0,.8);
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-
-
-.popup-box{
-
-background:#111;
-
-padding:30px;
-
-border-radius:20px;
-
-text-align:center;
-
-}
-
-
-
-input,select{
-
-padding:10px;
-
-margin:15px;
-
-}
-.categories{
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-margin-bottom:30px;
-
-flex-wrap:wrap;
-
-}
-
-
-
-.categories button{
-
-background:#151515;
-
-color:white;
-
-border:1px solid #444;
-
-padding:12px 25px;
-
-border-radius:30px;
-
-cursor:pointer;
-
-font-weight:bold;
-
-}
-
-
-
-.categories button:hover{
-
-background:white;
-
-color:black;
+text-transform:uppercase;
 
 }
