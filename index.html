@@ -10,8 +10,6 @@
 
 <link rel="stylesheet" href="css/style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 
@@ -24,17 +22,11 @@
 
 <div class="hero-content">
 
-<h1>
-LIFE COFFEE
-</h1>
+<h1>LIFE COFFEE</h1>
 
-<h3>
-SLOW BAR
-</h3>
+<h3>SLOW BAR</h3>
 
-<p>
-Specialty Coffee • Luang Prabang
-</p>
+<p>Specialty Coffee • Luang Prabang</p>
 
 <a href="#menu">
 VIEW MENU
@@ -47,6 +39,7 @@ VIEW MENU
 
 
 
+
 <section id="menu">
 
 <h2>
@@ -54,12 +47,62 @@ Our Coffee Menu ☕
 </h2>
 
 
-<div class="menu-container" id="coffee-menu">
+<div id="coffee-menu" class="menu-container">
 
 </div>
 
 
 </section>
+
+
+
+
+
+
+<section class="order-info">
+
+
+<h2>
+Customer Information
+</h2>
+
+
+<label>
+Name:
+</label>
+
+
+<input 
+type="text" 
+id="customer-name"
+placeholder="Your name">
+
+
+
+<h3>
+Payment Method 💳
+</h3>
+
+
+<label>
+<input type="radio" name="payment" value="Cash" checked>
+Cash 💵
+</label>
+
+
+<br>
+
+
+<label>
+<input type="radio" name="payment" value="BCEL QR">
+BCEL QR 📱
+</label>
+
+
+
+</section>
+
+
 
 
 
@@ -71,6 +114,15 @@ Our Coffee Menu ☕
 <h2>
 Your Order 🛒
 </h2>
+
+
+<p>
+Order Number:
+<b id="order-number">
+ODR001
+</b>
+</p>
+
 
 
 <div id="cart-items">
@@ -109,6 +161,8 @@ Order on WhatsApp 📱
 
 
 
+
+
 <footer>
 
 <p>
@@ -116,6 +170,8 @@ Order on WhatsApp 📱
 </p>
 
 </footer>
+
+
 
 
 
