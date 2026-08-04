@@ -1,132 +1,154 @@
 console.log("Menu loaded");
 
 
-const products = [
+const products=[
 
 
 {
 name:"Espresso",
-price:40000
+price:40000,
+category:"coffee"
 },
+
+{
+name:"Americano",
+price:35000,
+category:"coffee"
+},
+
+{
+name:"Cappuccino",
+price:40000,
+category:"coffee"
+},
+
+{
+name:"Latte",
+price:40000,
+category:"coffee"
+},
+
+{
+name:"Mocha",
+price:45000,
+category:"coffee"
+},
+
+{
+name:"Vanilla Latte",
+price:45000,
+category:"coffee"
+},
+
+{
+name:"Caramel Latte",
+price:45000,
+category:"coffee"
+},
+
+{
+name:"Orange Coffee",
+price:45000,
+category:"coffee"
+},
+
+{
+name:"Coconut Coffee",
+price:45000,
+category:"coffee"
+},
+
 
 
 {
 name:"Matcha Coconut",
-price:50000
+price:50000,
+category:"matcha"
 },
-
-
-{
-name:"Americano",
-price:35000
-},
-
 
 {
 name:"Matcha Latte",
-price:45000
+price:45000,
+category:"matcha"
 },
-
 
 {
-name:"Cappuccino",
-price:40000
+name:"Matcha Strawberry",
+price:50000,
+category:"matcha"
 },
+
+{
+name:"Green Tea",
+price:35000,
+category:"matcha"
+},
+
+
 
 
 {
 name:"Cocoa Strawberry",
-price:45000
+price:45000,
+category:"noncoffee"
 },
-
-
-{
-name:"Latte",
-price:40000
-},
-
 
 {
 name:"Cocoa Latte",
-price:35000
+price:35000,
+category:"noncoffee"
 },
-
-
-{
-name:"Mocha",
-price:45000
-},
-
-
-{
-name:"Matcha Strawberry",
-price:50000
-},
-
-
-{
-name:"Vanilla Latte",
-price:45000
-},
-
-
-{
-name:"Green Tea",
-price:35000
-},
-
-
-{
-name:"Caramel Latte",
-price:45000
-},
-
-
-{
-name:"Lemon Thai Tea",
-price:35000
-},
-
-
-{
-name:"Thai Milk Tea",
-price:35000
-},
-
-
-{
-name:"Orange Coffee",
-price:45000
-},
-
-
-{
-name:"Coconut Coffee",
-price:45000
-},
-
 
 {
 name:"Cocoa Coconut",
-price:45000
+price:45000,
+category:"noncoffee"
 },
 
+{
+name:"Thai Milk Tea",
+price:35000,
+category:"noncoffee"
+},
+
+{
+name:"Lemon Thai Tea",
+price:35000,
+category:"noncoffee"
+},
 
 {
 name:"Strawberry Milk",
-price:35000
+price:35000,
+category:"noncoffee"
 }
+
 
 
 ];
 
 
 
-let menu=document.getElementById("coffee-menu");
+
+
+const menu=document.getElementById("coffee-menu");
 
 
 
-products.forEach(p=>{
+
+
+function showCategory(category){
+
+
+menu.innerHTML="";
+
+
+
+products
+
+.filter(product=>product.category===category)
+
+.forEach(product=>{
 
 
 menu.innerHTML += `
@@ -136,17 +158,17 @@ menu.innerHTML += `
 
 
 <h3>
-${p.name}
+${product.name}
 </h3>
 
 
 <p>
-${p.price.toLocaleString()} Kip
+${product.price.toLocaleString()} Kip
 </p>
 
 
 
-<button onclick="openSugar('${p.name}',${p.price})">
+<button onclick="openSugar('${product.name}',${product.price})">
 
 ADD
 
@@ -160,3 +182,12 @@ ADD
 
 
 });
+
+
+}
+
+
+
+
+
+showCategory("coffee");
