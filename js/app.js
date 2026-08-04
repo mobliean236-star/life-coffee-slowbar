@@ -245,6 +245,13 @@ localStorage.setItem("order",order);
 
 document.getElementById("payment-popup").style.display="none";
 
+  function openMobileCart(){
+
+document.getElementById("cart")
+.classList.toggle("show-cart");
+
+}
+
 
 alert("Order sent");
 
