@@ -1,3 +1,115 @@
+body{
+
+margin:0;
+
+background:#000;
+
+color:white;
+
+font-family:Arial;
+
+}
+
+
+
+.hero{
+
+height:300px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+}
+
+
+
+.hero h1{
+
+font-size:70px;
+
+letter-spacing:8px;
+
+}
+
+
+
+#menu{
+
+text-align:center;
+
+padding:40px;
+
+}
+
+
+
+.menu-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+
+
+.card{
+
+background:#151515;
+
+padding:25px;
+
+width:220px;
+
+border-radius:20px;
+
+}
+
+
+
+button{
+
+padding:12px 30px;
+
+border-radius:30px;
+
+border:0;
+
+cursor:pointer;
+
+}
+
+
+
+.cart{
+
+position:fixed;
+
+right:20px;
+
+top:20px;
+
+width:300px;
+
+background:#111;
+
+padding:25px;
+
+border-radius:20px;
+
+}
+
+
+
 .popup{
 
 display:none;
@@ -6,20 +118,17 @@ position:fixed;
 
 inset:0;
 
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,.8);
 
 justify-content:center;
 
 align-items:center;
-
-z-index:2000;
 
 }
 
 
 
 .popup-box{
-
 
 background:#111;
 
@@ -29,42 +138,14 @@ border-radius:20px;
 
 text-align:center;
 
-border:1px solid #333;
-
-
 }
 
 
 
-.popup-box input,
-.popup-box select{
+input,select{
 
-
-padding:12px;
+padding:10px;
 
 margin:15px;
-
-border-radius:10px;
-
-
-}
-
-
-
-.popup-box button{
-
-
-background:white;
-
-color:black;
-
-border:none;
-
-padding:12px 25px;
-
-border-radius:30px;
-
-font-weight:bold;
-
 
 }
