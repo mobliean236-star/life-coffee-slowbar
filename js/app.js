@@ -1,16 +1,36 @@
 console.log("Life Coffee loaded");
 
 
+
 let cart = [];
 
 
 
-// ADD PRODUCT
+let orderNumber =
+localStorage.getItem("orderNumber") || 1;
 
-function addToCart(name, price){
 
 
-let existing = cart.find(item => item.name === name);
+document.getElementById("order-number").innerHTML =
+"ODR" + String(orderNumber).padStart(3,"0");
+
+
+
+
+
+function addToCart(name,price){
+
+
+let sugar =
+document.getElementById("sugar-"+name).value;
+
+
+
+let existing =
+cart.find(item =>
+item.name === name &&
+item.sugar === sugar
+);
 
 
 
@@ -28,6 +48,8 @@ cart.push({
 name:name,
 
 price:price,
+
+sugar:sugar,
 
 quantity:1
 
@@ -47,38 +69,32 @@ displayCart();
 
 
 
-// DISPLAY CART
-
 function displayCart(){
 
 
-const cartItems = document.getElementById("cart-items");
-
-const cartTotal = document.getElementById("cart-total");
-
+let cartItems =
+document.getElementById("cart-items");
 
 
-cartItems.innerHTML = "";
-
-
-
-let total = 0;
+let totalElement =
+document.getElementById("cart-total");
 
 
 
-if(cart.length === 0){
+cartItems.innerHTML="";
 
-cartItems.innerHTML =
-"<p>Your cart is empty</p>";
 
-}
+
+let total=0;
 
 
 
 cart.forEach((item,index)=>{
 
 
-let itemTotal = item.price * item.quantity;
+let itemTotal =
+item.price * item.quantity;
+
 
 
 total += itemTotal;
@@ -88,30 +104,17 @@ total += itemTotal;
 cartItems.innerHTML += `
 
 
-<div class="cart-item">
+<div>
 
 
-<h3>
-${item.name}
-</h3>
+<b>
+${item.quantity}x ${item.name}
+</b>
 
+<br>
 
-<p>
-${item.price.toLocaleString()} Kip x ${item.quantity}
-</p>
-
-
-
-<button onclick="increase(${index})">
-+
-</button>
-
-
-
-<button onclick="decrease(${index})">
--
-</button>
-
+Sugar:
+${item.sugar}
 
 
 <button onclick="removeItem(${index})">
@@ -120,6 +123,8 @@ ${item.price.toLocaleString()} Kip x ${item.quantity}
 
 
 </div>
+
+<hr>
 
 
 `;
@@ -130,7 +135,7 @@ ${item.price.toLocaleString()} Kip x ${item.quantity}
 
 
 
-cartTotal.innerHTML =
+totalElement.innerHTML =
 total.toLocaleString();
 
 
@@ -139,49 +144,6 @@ total.toLocaleString();
 
 
 
-// PLUS
-
-function increase(index){
-
-cart[index].quantity++;
-
-displayCart();
-
-}
-
-
-
-
-
-// MINUS
-
-function decrease(index){
-
-
-if(cart[index].quantity > 1){
-
-cart[index].quantity--;
-
-}
-
-else{
-
-cart.splice(index,1);
-
-}
-
-
-
-displayCart();
-
-
-}
-
-
-
-
-
-// DELETE
 
 function removeItem(index){
 
@@ -198,13 +160,11 @@ displayCart();
 
 
 
-
-// WHATSAPP ORDER
-
 function sendWhatsApp(){
 
 
-if(cart.length === 0){
+
+if(cart.length===0){
 
 alert("Your cart is empty");
 
@@ -214,12 +174,40 @@ return;
 
 
 
+let customer =
+document.getElementById("customer-name").value;
+
+
+
+let payment =
+document.querySelector(
+'input[name="payment"]:checked'
+).value;
+
+
+
+
 let message =
-"☕ Life Coffee Slow Bar Order\n\n";
+
+"☕ Life Coffee Slow Bar\n\n"+
+
+"Order: ODR"+
+String(orderNumber).padStart(3,"0")+
+"\n\n"+
+
+"Customer: "+
+customer+
+"\n\n"+
+
+"Payment: "+
+payment+
+"\n\n";
 
 
 
-let total = 0;
+
+
+let total=0;
 
 
 
@@ -230,14 +218,18 @@ let itemTotal =
 item.price * item.quantity;
 
 
-
 total += itemTotal;
 
 
 
 message +=
-`${item.quantity}x ${item.name} - ${itemTotal.toLocaleString()} Kip\n`;
 
+item.quantity+
+"x "+
+item.name+
+"\nSugar: "+
+item.sugar+
+"\n\n";
 
 
 });
@@ -245,12 +237,13 @@ message +=
 
 
 message +=
-`\nTotal: ${total.toLocaleString()} Kip`;
+
+"Total: "+
+total.toLocaleString()+
+" Kip";
 
 
 
-
-// CHANGE YOUR NUMBER HERE
 
 let phone =
 "8562092747227";
@@ -258,11 +251,27 @@ let phone =
 
 
 let url =
-"https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+"https://wa.me/"+phone+
+"?text="+
+encodeURIComponent(message);
 
 
 
 window.open(url,"_blank");
+
+
+
+
+
+orderNumber++;
+
+
+localStorage.setItem(
+"orderNumber",
+orderNumber
+);
+
 
 
 }
