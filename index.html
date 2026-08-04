@@ -24,11 +24,7 @@
 
 <h3>SLOW BAR</h3>
 
-<p>Specialty Coffee • Luang Prabang</p>
-
-<a href="#menu">
-VIEW MENU
-</a>
+<p>Luang Prabang ☕</p>
 
 </div>
 
@@ -37,18 +33,11 @@ VIEW MENU
 
 
 
-
 <section id="menu">
 
-<h2>
-Our Menu ☕
-</h2>
+<h2>Our Menu</h2>
 
-
-<div id="coffee-menu" class="menu-container">
-
-</div>
-
+<div id="coffee-menu" class="menu-container"></div>
 
 </section>
 
@@ -56,73 +45,59 @@ Our Menu ☕
 
 
 
-<!-- CART -->
+<!-- PANIER -->
 
-<section class="floating-cart">
+<div class="cart">
 
 
-<h2>
-🛒 Your Order
-</h2>
+<h2>🛒 Order</h2>
 
 
 <p>
-Order:
-<b id="order-number">
-ODR001
-</b>
+Number :
+<b id="order-number"></b>
 </p>
 
 
 <div id="cart-items">
 
-<p>Your cart is empty</p>
+Empty
+
+</div>
+
+
+<h3>
+Total :
+<span id="cart-total">0</span> Kip
+</h3>
+
+
+<button onclick="openCustomer()">
+ORDER
+</button>
+
 
 </div>
 
 
 
-<h3>
-
-Total:
-<span id="cart-total">
-0
-</span>
-Kip
-
-</h3>
 
 
 
-<button onclick="openCustomerPopup()">
+<!-- POPUP SUCRE -->
 
-ORDER
-
-</button>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- SUGAR POPUP -->
 
 <div id="sugar-popup" class="popup">
 
 
 <div class="popup-box">
 
-
-<h2 id="sugar-title">
+<h2>
 Sugar
 </h2>
 
 
-<select id="sugar-choice">
+<select id="sugar">
 
 <option>Normal sugar</option>
 
@@ -132,11 +107,17 @@ Sugar
 
 <option>Extra sugar</option>
 
+
 </select>
 
 
-<button onclick="confirmSugar()">
+<br>
+
+
+<button onclick="addSugar()">
+
 ADD TO CART
+
 </button>
 
 
@@ -150,8 +131,8 @@ ADD TO CART
 
 
 
+<!-- POPUP NOM -->
 
-<!-- CUSTOMER POPUP -->
 
 <div id="customer-popup" class="popup">
 
@@ -160,25 +141,25 @@ ADD TO CART
 
 
 <h2>
-Customer Name
+Customer
 </h2>
 
 
-<input 
-id="customer-name"
-placeholder="Your name">
+<input id="customer" placeholder="Name">
 
 
-<button onclick="openPaymentPopup()">
+<br>
 
-CONTINUE
+
+<button onclick="openPayment()">
+
+NEXT
 
 </button>
 
 
 </div>
 
-
 </div>
 
 
@@ -187,7 +168,8 @@ CONTINUE
 
 
 
-<!-- PAYMENT POPUP -->
+<!-- POPUP PAYMENT -->
+
 
 <div id="payment-popup" class="popup">
 
@@ -196,13 +178,17 @@ CONTINUE
 
 
 <h2>
-Payment Method
+Payment
 </h2>
 
 
+
 <label>
-<input type="radio" name="payment" value="Cash" checked>
-Cash 💵
+
+<input type="radio" name="pay" value="Cash" checked>
+
+Cash
+
 </label>
 
 
@@ -210,26 +196,29 @@ Cash 💵
 
 
 <label>
-<input type="radio" name="payment" value="BCEL QR">
-BCEL QR 📱
+
+<input type="radio" name="pay" value="BCEL QR">
+
+BCEL QR
+
 </label>
+
 
 
 <br><br>
 
 
-<button onclick="sendWhatsApp()">
+<button onclick="sendOrder()">
 
-CONFIRM ORDER
+CONFIRM
 
 </button>
 
 
-</div>
-
 
 </div>
 
+</div>
 
 
 
