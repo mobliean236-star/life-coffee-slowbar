@@ -1,124 +1,88 @@
-*{
-box-sizing:border-box;
-}
+/* CART FIXE A DROITE */
 
+.floating-cart{
 
-body{
+position:fixed;
 
-margin:0;
+top:20px;
 
-font-family:Arial, sans-serif;
+right:20px;
 
-background:#000;
+width:330px;
+
+background:#181818;
 
 color:white;
 
-}
+padding:25px;
 
-.hero {
+border-radius:20px;
 
-height:100vh;
+z-index:999;
 
-background-image:
-url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80");
-
-background-size:cover;
-
-background-position:center;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-position:relative;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
 
 }
 
 
 
+.floating-cart h2{
 
-.overlay{
-
-position:absolute;
-
-inset:0;
-
-background:rgba(0,0,0,0.55);
+margin-top:0;
 
 }
 
 
 
-.hero-content{
+.cart-item{
 
-position:relative;
+padding:12px 0;
 
-text-align:center;
-
-}
-
-
-
-.hero h1{
-
-font-size:80px;
-
-letter-spacing:8px;
-
-margin:0;
-
-font-weight:900;
+border-bottom:1px solid #444;
 
 }
 
 
 
-.hero p{
-
-font-size:30px;
-
-letter-spacing:10px;
-
-}
-
-
-
-.hero a{
-
-display:inline-block;
-
-margin-top:30px;
-
-padding:15px 40px;
+.floating-cart button{
 
 background:white;
 
 color:black;
 
-border-radius:40px;
+border:none;
 
-text-decoration:none;
+padding:10px 20px;
+
+border-radius:30px;
 
 font-weight:bold;
 
-}
+cursor:pointer;
 
-
-
-#menu{
-
-padding:50px;
-
-text-align:center;
+margin-top:15px;
 
 }
 
 
 
-#menu h2{
 
-font-size:40px;
+@media(max-width:900px){
+
+
+.floating-cart{
+
+position:relative;
+
+width:auto;
+
+top:auto;
+
+right:auto;
+
+margin:20px;
+
+}
+
 
 }
