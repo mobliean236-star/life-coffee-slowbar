@@ -3,17 +3,16 @@ console.log("Life Coffee loaded");
 
 let cart=[];
 
-
 let selected=null;
 
 
-let order=localStorage.getItem("order") || 1;
+let orderNumber =
+localStorage.getItem("orderNumber") || 1;
 
 
 
-document.getElementById("order-number").innerHTML=
-
-"ODR"+String(order).padStart(3,"0");
+document.getElementById("order-number").innerHTML =
+"ODR"+String(orderNumber).padStart(3,"0");
 
 
 
@@ -22,13 +21,7 @@ document.getElementById("order-number").innerHTML=
 function openSugar(name,price){
 
 
-selected={
-
-name:name,
-
-price:price
-
-};
+selected={name:name,price:price};
 
 
 document.getElementById("sugar-popup").style.display="flex";
@@ -39,12 +32,7 @@ document.getElementById("sugar-popup").style.display="flex";
 
 
 
-
 function addSugar(){
-
-
-let sugar=document.getElementById("sugar").value;
-
 
 
 cart.push({
@@ -53,7 +41,7 @@ name:selected.name,
 
 price:selected.price,
 
-sugar:sugar
+sugar:document.getElementById("sugar").value
 
 });
 
@@ -64,9 +52,7 @@ document.getElementById("sugar-popup").style.display="none";
 
 showCart();
 
-
 }
-
 
 
 
@@ -77,7 +63,6 @@ function showCart(){
 
 let box=document.getElementById("cart-items");
 
-
 let total=0;
 
 
@@ -85,7 +70,7 @@ box.innerHTML="";
 
 
 
-cart.forEach((item,i)=>{
+cart.forEach((item,index)=>{
 
 
 total+=item.price;
@@ -99,15 +84,11 @@ ${item.name}
 
 <br>
 
-${item.sugar}
+Sugar: ${item.sugar}
 
-
-<button onclick="deleteItem(${i})">
-
+<button onclick="removeItem(${index})">
 ❌
-
 </button>
-
 
 </p>
 
@@ -116,8 +97,7 @@ ${item.sugar}
 });
 
 
-document.getElementById("cart-total").innerHTML=
-
+document.getElementById("cart-total").innerHTML =
 total.toLocaleString();
 
 
@@ -126,9 +106,10 @@ total.toLocaleString();
 
 
 
-function deleteItem(i){
 
-cart.splice(i,1);
+function removeItem(index){
+
+cart.splice(index,1);
 
 showCart();
 
@@ -140,27 +121,20 @@ showCart();
 
 function openCustomer(){
 
-
 document.getElementById("customer-popup").style.display="flex";
 
-
 }
-
 
 
 
 
 function openPayment(){
 
-
 document.getElementById("customer-popup").style.display="none";
-
 
 document.getElementById("payment-popup").style.display="flex";
 
-
 }
-
 
 
 
@@ -170,30 +144,23 @@ document.getElementById("payment-popup").style.display="flex";
 function sendOrder(){
 
 
-let name=document.getElementById("customer").value;
+let message="☕ Life Coffee Slow Bar\n\n";
 
 
-let pay=document.querySelector('input[name="pay"]:checked').value;
+message+="Order: ODR"+String(orderNumber).padStart(3,"0");
+
+message+="\nCustomer: "+document.getElementById("customer").value;
 
 
+message+="\nPayment: "+
+document.querySelector('input[name="pay"]:checked').value;
 
-let text=
 
-"☕ Life Coffee Slow Bar\n\n"+
-
-"Order: ODR"+String(order).padStart(3,"0")+
-
-"\nCustomer: "+name+
-
-"\nPayment: "+pay+
-
-"\n\n";
-
+message+="\n\n";
 
 
 
 let total=0;
-
 
 
 cart.forEach(item=>{
@@ -202,14 +169,9 @@ cart.forEach(item=>{
 total+=item.price;
 
 
-text+=
-
-item.name+
-
+message+=item.name+
 "\nSugar: "+
-
 item.sugar+
-
 "\n\n";
 
 
@@ -217,43 +179,32 @@ item.sugar+
 
 
 
-text+="Total: "+total.toLocaleString()+" Kip";
+message+="Total: "+total.toLocaleString()+" Kip";
 
-
-
-
-let phone="8562092747227";
 
 
 
 window.open(
 
-"https://wa.me/"+phone+
-
-"?text="+encodeURIComponent(text)
+"https://wa.me/8562092747227?text="+encodeURIComponent(message)
 
 );
 
 
 
-order++;
+orderNumber++;
 
 
-localStorage.setItem("order",order);
+localStorage.setItem("orderNumber",orderNumber);
 
-
-
-document.getElementById("payment-popup").style.display="none";
-
-  function openMobileCart(){
-
-document.getElementById("cart")
-.classList.toggle("show-cart");
 
 }
 
 
-alert("Order sent");
 
+
+function openMobileCart(){
+
+document.getElementById("cart").classList.toggle("show-cart");
 
 }
