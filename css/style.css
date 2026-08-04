@@ -11,12 +11,15 @@ background:#000;
 
 color:white;
 
-font-family:Arial,sans-serif;
+font-family:Arial, sans-serif;
 
 }
 
 
 
+
+
+/* HERO */
 
 .hero{
 
@@ -30,6 +33,13 @@ align-items:center;
 
 text-align:center;
 
+background:
+
+linear-gradient(
+rgba(0,0,0,0.5),
+rgba(0,0,0,0.8)
+);
+
 }
 
 
@@ -38,7 +48,9 @@ text-align:center;
 
 border:2px solid #d6b36a;
 
-padding:20px 40px;
+padding:20px 45px;
+
+display:inline-block;
 
 }
 
@@ -52,6 +64,8 @@ font-size:70px;
 
 letter-spacing:8px;
 
+font-weight:900;
+
 }
 
 
@@ -62,6 +76,8 @@ font-size:30px;
 
 letter-spacing:10px;
 
+margin:25px 0 10px;
+
 }
 
 
@@ -70,14 +86,20 @@ letter-spacing:10px;
 
 color:#ccc;
 
+font-size:18px;
+
 }
 
 
 
 
+
+/* MENU */
+
+
 #menu{
 
-padding:40px;
+padding:40px 20px;
 
 text-align:center;
 
@@ -89,9 +111,15 @@ text-align:center;
 
 font-size:40px;
 
+letter-spacing:5px;
+
 }
 
 
+
+
+
+/* CATEGORIES */
 
 
 .categories{
@@ -103,6 +131,8 @@ justify-content:center;
 gap:15px;
 
 margin-bottom:40px;
+
+flex-wrap:wrap;
 
 }
 
@@ -121,10 +151,31 @@ padding:12px 30px;
 
 border-radius:30px;
 
+cursor:pointer;
+
+font-weight:bold;
+
+transition:.3s;
+
 }
 
 
 
+.categories button:hover{
+
+background:#d6b36a;
+
+color:black;
+
+}
+
+
+
+
+
+
+
+/* CARDS */
 
 
 .menu-container{
@@ -143,6 +194,8 @@ flex-wrap:wrap;
 
 .card{
 
+position:relative;
+
 background:#151515;
 
 width:230px;
@@ -157,9 +210,21 @@ border:1px solid #333;
 
 
 
+.card h3{
+
+font-size:20px;
+
+}
+
+
+
 .card p{
 
 color:#d6b36a;
+
+font-size:20px;
+
+font-weight:bold;
 
 }
 
@@ -168,15 +233,52 @@ color:#d6b36a;
 .card button{
 
 
-padding:12px 30px;
+background:white;
+
+color:black;
+
+padding:10px 30px;
 
 border-radius:30px;
 
-border:0;
+border:none;
+
+cursor:pointer;
+
+font-weight:bold;
 
 }
 
 
+
+.best{
+
+
+position:absolute;
+
+top:10px;
+
+right:10px;
+
+background:#d6b36a;
+
+color:black;
+
+padding:5px 10px;
+
+border-radius:20px;
+
+font-size:11px;
+
+}
+
+
+
+
+
+
+
+/* CART */
 
 
 .cart{
@@ -195,11 +297,57 @@ padding:25px;
 
 border-radius:20px;
 
+border:1px solid #333;
+
 z-index:1000;
 
 }
 
 
+
+.cart h2{
+
+margin-top:0;
+
+}
+
+
+
+.cart button{
+
+background:#d6b36a;
+
+color:black;
+
+border:none;
+
+padding:12px 30px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+
+.cart-item{
+
+border-bottom:1px solid #333;
+
+padding:10px 0;
+
+}
+
+
+
+
+
+
+
+/* POPUPS */
 
 
 .popup{
@@ -232,9 +380,120 @@ border-radius:20px;
 
 text-align:center;
 
+border:1px solid #444;
+
 }
 
 
+
+.popup-box input,
+.popup-box select{
+
+
+padding:12px;
+
+background:#000;
+
+color:white;
+
+border:1px solid #555;
+
+margin:15px;
+
+}
+
+
+
+
+
+
+
+/* LOCATION */
+
+
+.location{
+
+text-align:center;
+
+padding:50px 20px;
+
+background:#050505;
+
+}
+
+
+
+.location h2{
+
+font-size:40px;
+
+letter-spacing:5px;
+
+}
+
+
+
+.location p{
+
+color:#ccc;
+
+font-size:18px;
+
+}
+
+
+
+.map{
+
+max-width:700px;
+
+margin:30px auto;
+
+border-radius:20px;
+
+overflow:hidden;
+
+border:1px solid #333;
+
+}
+
+
+
+.map iframe{
+
+display:block;
+
+}
+
+
+
+.location a{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:12px 30px;
+
+background:#d6b36a;
+
+color:black;
+
+text-decoration:none;
+
+border-radius:30px;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+
+
+/* MOBILE CART BUTTON */
 
 
 .mobile-cart-btn{
@@ -248,24 +507,98 @@ display:none;
 
 
 
+
+
+
+/* MOBILE */
+
+
 @media(max-width:900px){
+
+
+
+.hero{
+
+height:280px;
+
+}
+
+
+
+.logo-box h1{
+
+font-size:42px;
+
+}
+
+
+
+.hero h3{
+
+font-size:22px;
+
+letter-spacing:6px;
+
+}
+
+
+
+
+.menu-container{
+
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+
+}
+
+
+
+.card{
+
+width:100%;
+
+padding:15px 10px;
+
+}
+
+
+
+.categories button{
+
+padding:12px 18px;
+
+}
+
+
+
+
+
 
 
 .cart{
 
-bottom:-500px;
 
-top:auto;
+position:fixed;
 
 left:10px;
 
 right:10px;
 
+bottom:-500px;
+
+top:auto;
+
 width:auto;
 
-transition:.3s;
+transition:.4s;
 
 }
+
 
 
 .cart.show-cart{
@@ -273,6 +606,7 @@ transition:.3s;
 bottom:20px;
 
 }
+
 
 
 
@@ -303,35 +637,6 @@ z-index:1500;
 
 }
 
-
-
-.menu-container{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:15px;
-
-}
-
-
-
-.card{
-
-width:100%;
-
-padding:15px;
-
-}
-
-
-
-.logo-box h1{
-
-font-size:40px;
-
-}
 
 
 }
