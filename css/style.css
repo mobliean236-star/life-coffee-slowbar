@@ -1,14 +1,51 @@
-/* LOGO LIFE COFFEE */
+*{
+box-sizing:border-box;
+}
+
+
+body{
+
+margin:0;
+
+background:#000;
+
+color:white;
+
+font-family:Arial,sans-serif;
+
+}
+
+
+
+/* HERO */
+
+
+.hero{
+
+height:350px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+}
+
+
 
 .logo-box{
 
-border:2px solid white;
+border:2px solid #d6b36a;
 
-padding:20px 40px;
+padding:20px 45px;
 
 display:inline-block;
 
 }
+
 
 
 .logo-box h1{
@@ -17,24 +54,262 @@ margin:0;
 
 font-size:70px;
 
-letter-spacing:10px;
-
-font-weight:900;
+letter-spacing:8px;
 
 }
 
 
 
-/* MENU TITLE */
+.hero h3{
+
+font-size:30px;
+
+letter-spacing:10px;
+
+}
+
+
+.hero p{
+
+color:#ccc;
+
+}
+
+
+
+/* MENU */
+
+
+#menu{
+
+padding:40px;
+
+text-align:center;
+
+}
+
+
 
 #menu h2{
 
-font-size:45px;
+font-size:40px;
 
 letter-spacing:5px;
 
+}
+
+
+
+.categories{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
 margin-bottom:40px;
 
-text-transform:uppercase;
+}
+
+
+
+.categories button{
+
+
+background:#1b1b1b;
+
+color:white;
+
+border:1px solid #555;
+
+padding:12px 30px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+}
+
+
+
+.categories button:hover{
+
+background:#d6b36a;
+
+color:black;
+
+}
+
+
+
+
+.menu-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+
+
+.card{
+
+background:#151515;
+
+width:230px;
+
+padding:25px;
+
+border-radius:20px;
+
+border:1px solid #333;
+
+}
+
+
+
+.card p{
+
+color:#d6b36a;
+
+font-size:20px;
+
+}
+
+
+
+.card button{
+
+padding:10px 30px;
+
+border-radius:30px;
+
+border:0;
+
+cursor:pointer;
+
+}
+
+
+
+
+/* CART */
+
+
+.cart{
+
+position:fixed;
+
+right:20px;
+
+top:20px;
+
+width:300px;
+
+background:#111;
+
+padding:25px;
+
+border-radius:20px;
+
+border:1px solid #333;
+
+}
+
+
+
+
+/* POPUP */
+
+
+.popup{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.8);
+
+justify-content:center;
+
+align-items:center;
+
+z-index:2000;
+
+}
+
+
+
+.popup-box{
+
+background:#151515;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+border:1px solid #444;
+
+}
+
+
+
+input,select{
+
+padding:12px;
+
+margin:15px;
+
+background:#000;
+
+color:white;
+
+border:1px solid #555;
+
+}
+
+
+
+button{
+
+font-weight:bold;
+
+}
+
+
+@media(max-width:900px){
+
+
+.cart{
+
+position:relative;
+
+top:auto;
+
+right:auto;
+
+width:auto;
+
+margin:20px;
+
+}
+
+
+.logo-box h1{
+
+font-size:45px;
+
+}
+
 
 }
