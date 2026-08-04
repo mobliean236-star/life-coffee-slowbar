@@ -1,1 +1,8 @@
-cocoa.jpg
+images/
+├── espresso.jpg
+├── americano.jpg
+├── cappuccino.jpg
+├── latte.jpg
+├── orange-coffee.jpg
+├── coconut-coffee.jpg
+├── matcha-coconut.jpg
