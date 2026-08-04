@@ -94,7 +94,7 @@ image:"images/cocoa-strawberry.jpg"
 {
 name:"Cocoa Latte",
 price:35000,
-image:"images/cocoa-latte.jpg"
+image:"images/cocoa.jpg"
 },
 
 {
