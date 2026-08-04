@@ -1,6 +1,236 @@
-/* CART FIXE A DROITE */
+*{
+box-sizing:border-box;
+}
+
+
+body{
+
+margin:0;
+
+font-family:Arial, sans-serif;
+
+background:#000;
+
+color:white;
+
+}
+
+
+
+/* HERO */
+
+.hero{
+
+height:100vh;
+
+background:#000;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+text-align:center;
+
+}
+
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+
+.hero h1{
+
+font-size:80px;
+
+letter-spacing:8px;
+
+margin:0;
+
+}
+
+
+
+.hero h3{
+
+font-size:35px;
+
+letter-spacing:10px;
+
+margin:20px;
+
+}
+
+
+
+.hero p{
+
+font-size:18px;
+
+color:#ccc;
+
+}
+
+
+
+.hero a{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:15px 40px;
+
+background:white;
+
+color:black;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+/* MENU */
+
+
+#menu{
+
+padding:60px 20px;
+
+text-align:center;
+
+}
+
+
+
+#menu h2{
+
+font-size:40px;
+
+}
+
+
+
+.menu-container{
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-wrap:wrap;
+
+gap:25px;
+
+
+}
+
+
+
+.card{
+
+
+background:#161616;
+
+width:250px;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+border:1px solid #333;
+
+
+}
+
+
+
+.card h3{
+
+font-size:22px;
+
+}
+
+
+
+.card p{
+
+color:#d6b36a;
+
+font-size:20px;
+
+}
+
+
+
+.card select{
+
+
+background:#000;
+
+color:white;
+
+border:1px solid #555;
+
+padding:10px;
+
+border-radius:10px;
+
+}
+
+
+
+.card button{
+
+
+margin-top:15px;
+
+background:white;
+
+color:black;
+
+border:none;
+
+padding:12px 30px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+
+}
+
+
+
+
+
+/* PANIER */
+
 
 .floating-cart{
+
 
 position:fixed;
 
@@ -8,19 +238,18 @@ top:20px;
 
 right:20px;
 
-width:330px;
+width:320px;
 
-background:#181818;
-
-color:white;
+background:#111;
 
 padding:25px;
 
 border-radius:20px;
 
+border:1px solid #333;
+
 z-index:999;
 
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
 
 }
 
@@ -38,7 +267,7 @@ margin-top:0;
 
 padding:12px 0;
 
-border-bottom:1px solid #444;
+border-bottom:1px solid #333;
 
 }
 
@@ -46,25 +275,63 @@ border-bottom:1px solid #444;
 
 .floating-cart button{
 
+
+margin-top:15px;
+
 background:white;
 
 color:black;
 
-border:none;
+padding:12px 25px;
 
-padding:10px 20px;
+border:none;
 
 border-radius:30px;
 
 font-weight:bold;
 
-cursor:pointer;
-
-margin-top:15px;
 
 }
 
 
+
+
+
+/* CUSTOMER */
+
+
+.order-info{
+
+
+text-align:center;
+
+padding:30px;
+
+
+}
+
+
+
+.order-info input[type="text"]{
+
+
+padding:12px;
+
+border-radius:10px;
+
+border:none;
+
+background:#222;
+
+color:white;
+
+}
+
+
+
+
+
+/* MOBILE */
 
 
 @media(max-width:900px){
@@ -72,15 +339,24 @@ margin-top:15px;
 
 .floating-cart{
 
-position:relative;
 
-width:auto;
+position:relative;
 
 top:auto;
 
 right:auto;
 
+width:auto;
+
 margin:20px;
+
+
+}
+
+
+.hero h1{
+
+font-size:45px;
 
 }
 
