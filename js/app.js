@@ -1,7 +1,9 @@
 console.log("Life Coffee loaded");
 
 
-let cart = [];
+let cart=[];
+
+let currentProduct=null;
 
 
 let orderNumber =
@@ -10,40 +12,50 @@ localStorage.getItem("orderNumber") || 1;
 
 
 document.getElementById("order-number").innerHTML =
-"ODR" + String(orderNumber).padStart(3,"0");
+"ODR"+String(orderNumber).padStart(3,"0");
 
 
 
 
 
-function addToCart(name,price){
+// OPEN SUGAR POPUP
+
+function openSugarPopup(name,price){
+
+
+currentProduct={
+
+name:name,
+
+price:price
+
+};
+
+
+document.getElementById("sugar-popup").style.display="flex";
+
+
+}
+
+
+
+
+
+// ADD AFTER SUGAR
+
+function confirmSugar(){
 
 
 let sugar =
-document.getElementById("sugar-"+name).value;
+document.getElementById("sugar-choice").value;
 
-
-
-let existing =
-cart.find(item =>
-item.name === name &&
-item.sugar === sugar
-);
-
-
-
-if(existing){
-
-existing.quantity++;
-
-}else{
 
 
 cart.push({
 
-name:name,
+name:currentProduct.name,
 
-price:price,
+price:currentProduct.price,
 
 sugar:sugar,
 
@@ -52,12 +64,17 @@ quantity:1
 });
 
 
-}
+
+document.getElementById("sugar-popup").style.display="none";
 
 
 displayCart();
 
+
 }
+
+
+
 
 
 
@@ -65,11 +82,11 @@ displayCart();
 function displayCart(){
 
 
-let box =
+let box=
 document.getElementById("cart-items");
 
 
-let totalBox =
+let totalBox=
 document.getElementById("cart-total");
 
 
@@ -80,34 +97,20 @@ let total=0;
 
 
 
-if(cart.length===0){
-
-box.innerHTML=
-"<p>Your cart is empty</p>";
-
-}
-
-
-
-
 cart.forEach((item,index)=>{
 
 
-let itemTotal =
-item.price * item.quantity;
-
-
-total += itemTotal;
+total += item.price;
 
 
 
 box.innerHTML += `
 
+
 <div class="cart-item">
 
-<b>
-${item.quantity}x ${item.name}
-</b>
+
+${item.name}
 
 <br>
 
@@ -122,11 +125,13 @@ ${item.sugar}
 
 </div>
 
+
 `;
 
 
 
 });
+
 
 
 totalBox.innerHTML =
@@ -139,7 +144,9 @@ total.toLocaleString();
 
 
 
+
 function removeItem(index){
+
 
 cart.splice(index,1);
 
@@ -151,18 +158,39 @@ displayCart();
 
 
 
+// CUSTOMER POPUP
 
-function sendWhatsApp(){
+function openCustomerPopup(){
 
 
+document.getElementById("customer-popup").style.display="flex";
 
-if(cart.length===0){
-
-alert("Your cart is empty");
-
-return;
 
 }
+
+
+
+
+// PAYMENT POPUP
+
+function openPaymentPopup(){
+
+
+document.getElementById("customer-popup").style.display="none";
+
+
+document.getElementById("payment-popup").style.display="flex";
+
+
+}
+
+
+
+
+
+
+
+function sendWhatsApp(){
 
 
 
@@ -175,31 +203,6 @@ let payment =
 document.querySelector(
 'input[name="payment"]:checked'
 ).value;
-
-
-
-
-let confirmOrder =
-confirm(
-
-"☕ Confirm order?\n\n"+
-
-"Customer: "+
-customer+
-
-"\nPayment: "+
-payment
-
-);
-
-
-
-if(!confirmOrder){
-
-return;
-
-}
-
 
 
 
@@ -220,8 +223,6 @@ payment+
 
 
 
-
-
 let total=0;
 
 
@@ -229,18 +230,11 @@ let total=0;
 cart.forEach(item=>{
 
 
-let itemTotal =
-item.price * item.quantity;
-
-
-total += itemTotal;
-
+total += item.price;
 
 
 message +=
 
-item.quantity+
-"x "+
 item.name+
 
 "\nSugar: "+
@@ -262,23 +256,18 @@ total.toLocaleString()+
 
 
 
-
-let phone =
-"8562092747227";
+let phone="8562092747227";
 
 
 
 window.open(
 
-"https://wa.me/"+
-phone+
-"?text="+
-encodeURIComponent(message),
+"https://wa.me/"+phone+
+"?text="+encodeURIComponent(message),
 
 "_blank"
 
 );
-
 
 
 
@@ -290,6 +279,9 @@ localStorage.setItem(
 orderNumber
 );
 
+
+
+document.getElementById("payment-popup").style.display="none";
 
 
 alert("Order sent ✅");
