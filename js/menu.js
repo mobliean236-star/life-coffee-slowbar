@@ -15,6 +15,7 @@ category:"coffee"
 name:"Americano",
 price:35000,
 category:"coffee"
+best:true
 },
 
 
@@ -57,7 +58,6 @@ category:"coffee"
 name:"Orange Coffee",
 price:45000,
 category:"coffee",
-best:true
 },
 
 
@@ -65,7 +65,6 @@ best:true
 name:"Coconut Coffee",
 price:45000,
 category:"coffee",
-best:true
 },
 
 
@@ -82,6 +81,7 @@ category:"matcha"
 name:"Matcha Latte",
 price:45000,
 category:"matcha"
+best:true
 },
 
 
