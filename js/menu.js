@@ -32,7 +32,7 @@ const products=[
 
 
 
-let menu=document.getElementById("coffee-menu");
+const menu=document.getElementById("coffee-menu");
 
 
 
@@ -51,9 +51,7 @@ menu.innerHTML+=`
 
 <div class="card">
 
-
 <h3>${p.name}</h3>
-
 
 <p>${p.price.toLocaleString()} Kip</p>
 
@@ -68,6 +66,7 @@ ADD
 </div>
 
 `;
+
 
 });
 
