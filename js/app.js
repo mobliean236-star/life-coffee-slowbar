@@ -5,12 +5,12 @@ let cart = [];
 
 
 
-// Ajouter au panier
+// ADD PRODUCT
 
 function addToCart(name, price){
 
 
-const existing = cart.find(item => item.name === name);
+let existing = cart.find(item => item.name === name);
 
 
 
@@ -18,7 +18,9 @@ if(existing){
 
 existing.quantity++;
 
-}else{
+}
+
+else{
 
 
 cart.push({
@@ -45,7 +47,7 @@ displayCart();
 
 
 
-// Afficher panier
+// DISPLAY CART
 
 function displayCart(){
 
@@ -55,7 +57,9 @@ const cartItems = document.getElementById("cart-items");
 const cartTotal = document.getElementById("cart-total");
 
 
+
 cartItems.innerHTML = "";
+
 
 
 let total = 0;
@@ -64,10 +68,10 @@ let total = 0;
 
 if(cart.length === 0){
 
-cartItems.innerHTML = "<p>Your cart is empty</p>";
+cartItems.innerHTML =
+"<p>Your cart is empty</p>";
 
 }
-
 
 
 
@@ -115,7 +119,6 @@ ${item.price.toLocaleString()} Kip x ${item.quantity}
 </button>
 
 
-
 </div>
 
 
@@ -127,7 +130,8 @@ ${item.price.toLocaleString()} Kip x ${item.quantity}
 
 
 
-cartTotal.innerHTML = total.toLocaleString();
+cartTotal.innerHTML =
+total.toLocaleString();
 
 
 }
@@ -135,7 +139,7 @@ cartTotal.innerHTML = total.toLocaleString();
 
 
 
-// augmenter quantité
+// PLUS
 
 function increase(index){
 
@@ -149,7 +153,7 @@ displayCart();
 
 
 
-// diminuer quantité
+// MINUS
 
 function decrease(index){
 
@@ -158,11 +162,14 @@ if(cart[index].quantity > 1){
 
 cart[index].quantity--;
 
-}else{
+}
+
+else{
 
 cart.splice(index,1);
 
 }
+
 
 
 displayCart();
@@ -173,7 +180,8 @@ displayCart();
 
 
 
-// supprimer
+
+// DELETE
 
 function removeItem(index){
 
@@ -182,6 +190,79 @@ cart.splice(index,1);
 
 
 displayCart();
+
+
+}
+
+
+
+
+
+
+// WHATSAPP ORDER
+
+function sendWhatsApp(){
+
+
+if(cart.length === 0){
+
+alert("Your cart is empty");
+
+return;
+
+}
+
+
+
+let message =
+"☕ Life Coffee Slow Bar Order\n\n";
+
+
+
+let total = 0;
+
+
+
+cart.forEach(item=>{
+
+
+let itemTotal =
+item.price * item.quantity;
+
+
+
+total += itemTotal;
+
+
+
+message +=
+`${item.quantity}x ${item.name} - ${itemTotal.toLocaleString()} Kip\n`;
+
+
+
+});
+
+
+
+message +=
+`\nTotal: ${total.toLocaleString()} Kip`;
+
+
+
+
+// CHANGE YOUR NUMBER HERE
+
+let phone =
+"856XXXXXXXX";
+
+
+
+let url =
+"https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+
+
+window.open(url,"_blank");
 
 
 }
