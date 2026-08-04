@@ -18,8 +18,6 @@
 
 <header class="hero">
 
-<div class="overlay"></div>
-
 <div class="hero-content">
 
 <h1>LIFE COFFEE</h1>
@@ -39,10 +37,11 @@ VIEW MENU
 
 
 
+
 <section id="menu">
 
 <h2>
-Our Coffee Menu ☕
+Our Menu ☕
 </h2>
 
 
@@ -57,24 +56,148 @@ Our Coffee Menu ☕
 
 
 
-<section class="order-info">
+<!-- CART -->
+
+<section class="floating-cart">
 
 
 <h2>
-Customer Information
+🛒 Your Order
+</h2>
+
+
+<p>
+Order:
+<b id="order-number">
+ODR001
+</b>
+</p>
+
+
+<div id="cart-items">
+
+<p>Your cart is empty</p>
+
+</div>
+
+
+
+<h3>
+
+Total:
+<span id="cart-total">
+0
+</span>
+Kip
+
+</h3>
+
+
+
+<button onclick="openCustomerPopup()">
+
+ORDER
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- SUGAR POPUP -->
+
+<div id="sugar-popup" class="popup">
+
+
+<div class="popup-box">
+
+
+<h2 id="sugar-title">
+Sugar
+</h2>
+
+
+<select id="sugar-choice">
+
+<option>Normal sugar</option>
+
+<option>Less sugar</option>
+
+<option>No sugar</option>
+
+<option>Extra sugar</option>
+
+</select>
+
+
+<button onclick="confirmSugar()">
+ADD TO CART
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- CUSTOMER POPUP -->
+
+<div id="customer-popup" class="popup">
+
+
+<div class="popup-box">
+
+
+<h2>
+Customer Name
 </h2>
 
 
 <input 
 id="customer-name"
-type="text"
-placeholder="Customer name">
+placeholder="Your name">
+
+
+<button onclick="openPaymentPopup()">
+
+CONTINUE
+
+</button>
+
+
+</div>
+
+
+</div>
 
 
 
-<h3>
-Payment 💳
-</h3>
+
+
+
+
+<!-- PAYMENT POPUP -->
+
+<div id="payment-popup" class="popup">
+
+
+<div class="popup-box">
+
+
+<h2>
+Payment Method
+</h2>
 
 
 <label>
@@ -92,74 +215,22 @@ BCEL QR 📱
 </label>
 
 
-</section>
-
-
-
-
-
-
-<section class="cart floating-cart">
-
-
-<h2>
-🛒 Your Order
-</h2>
-
-
-<p>
-Order:
-<b id="order-number">
-ODR001
-</b>
-</p>
-
-
-
-<div id="cart-items">
-
-<p>
-Your cart is empty
-</p>
-
-</div>
-
-
-
-
-<h3>
-
-Total:
-<span id="cart-total">
-0
-</span>
-Kip
-
-</h3>
-
+<br><br>
 
 
 <button onclick="sendWhatsApp()">
 
-Confirm Order 📱
+CONFIRM ORDER
 
 </button>
 
 
-</section>
+</div>
 
 
+</div>
 
 
-
-
-<footer>
-
-<p>
-© 2026 Life Coffee Slow Bar
-</p>
-
-</footer>
 
 
 
