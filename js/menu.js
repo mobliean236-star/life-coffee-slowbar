@@ -1,7 +1,7 @@
 console.log("Menu loaded");
 
 
-const coffee = [
+const coffee=[
 
 {
 name:"Espresso",
@@ -24,14 +24,8 @@ price:40000
 },
 
 {
-name:"Mocha",
-price:45000
-},
-
-{
 name:"Orange Coffee",
-price:45000,
-best:true
+price:45000
 },
 
 {
@@ -43,11 +37,10 @@ price:45000
 
 
 
-const menu = document.getElementById("coffee-menu");
+const menu=document.getElementById("coffee-menu");
 
 
-
-coffee.forEach(product => {
+coffee.forEach(product=>{
 
 
 menu.innerHTML += `
@@ -58,7 +51,6 @@ menu.innerHTML += `
 
 <h3>
 ${product.name}
-${product.best ? " ⭐" : ""}
 </h3>
 
 
@@ -68,45 +60,17 @@ ${product.price.toLocaleString()} Kip
 
 
 
-<label>
-Sugar:
-</label>
-
-
-<select id="sugar-${product.name}">
-
-<option>
-Normal sugar
-</option>
-
-<option>
-Less sugar
-</option>
-
-<option>
-No sugar
-</option>
-
-<option>
-Extra sugar
-</option>
-
-
-</select>
-
-
-
-<button onclick="addToCart('${product.name}',${product.price})">
+<button onclick="openSugarPopup('${product.name}',${product.price})">
 
 ADD
 
 </button>
 
 
-
 </div>
 
 
 `;
+
 
 });
