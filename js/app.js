@@ -1,9 +1,7 @@
 console.log("Life Coffee loaded");
 
 
-
 let cart = [];
-
 
 
 let orderNumber =
@@ -38,9 +36,7 @@ if(existing){
 
 existing.quantity++;
 
-}
-
-else{
+}else{
 
 
 cart.push({
@@ -59,12 +55,9 @@ quantity:1
 }
 
 
-
 displayCart();
 
-
 }
-
 
 
 
@@ -72,20 +65,28 @@ displayCart();
 function displayCart(){
 
 
-let cartItems =
+let box =
 document.getElementById("cart-items");
 
 
-let totalElement =
+let totalBox =
 document.getElementById("cart-total");
 
 
-
-cartItems.innerHTML="";
-
+box.innerHTML="";
 
 
 let total=0;
+
+
+
+if(cart.length===0){
+
+box.innerHTML=
+"<p>Your cart is empty</p>";
+
+}
+
 
 
 
@@ -96,16 +97,13 @@ let itemTotal =
 item.price * item.quantity;
 
 
-
 total += itemTotal;
 
 
 
-cartItems.innerHTML += `
+box.innerHTML += `
 
-
-<div>
-
+<div class="cart-item">
 
 <b>
 ${item.quantity}x ${item.name}
@@ -124,9 +122,6 @@ ${item.sugar}
 
 </div>
 
-<hr>
-
-
 `;
 
 
@@ -134,8 +129,7 @@ ${item.sugar}
 });
 
 
-
-totalElement.innerHTML =
+totalBox.innerHTML =
 total.toLocaleString();
 
 
@@ -147,14 +141,12 @@ total.toLocaleString();
 
 function removeItem(index){
 
-
 cart.splice(index,1);
-
 
 displayCart();
 
-
 }
+
 
 
 
@@ -187,20 +179,43 @@ document.querySelector(
 
 
 
+let confirmOrder =
+confirm(
+
+"☕ Confirm order?\n\n"+
+
+"Customer: "+
+customer+
+
+"\nPayment: "+
+payment
+
+);
+
+
+
+if(!confirmOrder){
+
+return;
+
+}
+
+
+
+
 let message =
 
 "☕ Life Coffee Slow Bar\n\n"+
 
 "Order: ODR"+
 String(orderNumber).padStart(3,"0")+
-"\n\n"+
 
-"Customer: "+
+"\nCustomer: "+
 customer+
-"\n\n"+
 
-"Payment: "+
+"\nPayment: "+
 payment+
+
 "\n\n";
 
 
@@ -227,8 +242,10 @@ message +=
 item.quantity+
 "x "+
 item.name+
+
 "\nSugar: "+
 item.sugar+
+
 "\n\n";
 
 
@@ -245,21 +262,22 @@ total.toLocaleString()+
 
 
 
+
 let phone =
 "8562092747227";
 
 
 
-let url =
+window.open(
 
-"https://wa.me/"+phone+
+"https://wa.me/"+
+phone+
 "?text="+
-encodeURIComponent(message);
+encodeURIComponent(message),
 
+"_blank"
 
-
-window.open(url,"_blank");
-
+);
 
 
 
@@ -272,6 +290,9 @@ localStorage.setItem(
 orderNumber
 );
 
+
+
+alert("Order sent ✅");
 
 
 }
