@@ -1,9 +1,11 @@
 console.log("Life Coffee loaded");
 
 
-let cart=[];
 
-let selected=null;
+let cart = [];
+
+let selectedProduct = null;
+
 
 
 let orderNumber =
@@ -12,16 +14,28 @@ localStorage.getItem("orderNumber") || 1;
 
 
 document.getElementById("order-number").innerHTML =
-"ODR"+String(orderNumber).padStart(3,"0");
+"ODR" + String(orderNumber).padStart(3,"0");
 
 
 
 
 
-function openSugar(name,price){
 
 
-selected={name:name,price:price};
+// OUVRIR POPUP SUCRE
+
+
+function openSugar(name, price){
+
+
+selectedProduct = {
+
+name:name,
+
+price:price
+
+};
+
 
 
 document.getElementById("sugar-popup").style.display="flex";
@@ -32,25 +46,45 @@ document.getElementById("sugar-popup").style.display="flex";
 
 
 
+
+
+
+
+// AJOUT AU PANIER
+
+
 function addSugar(){
+
+
+
+let sugar =
+document.getElementById("sugar").value;
+
 
 
 cart.push({
 
-name:selected.name,
 
-price:selected.price,
+name:selectedProduct.name,
 
-sugar:document.getElementById("sugar").value
+
+price:selectedProduct.price,
+
+
+sugar:sugar
+
 
 });
+
 
 
 
 document.getElementById("sugar-popup").style.display="none";
 
 
+
 showCart();
+
 
 }
 
@@ -58,135 +92,285 @@ showCart();
 
 
 
+
+
+
+// AFFICHER PANIER
+
+
 function showCart(){
 
 
-let box=document.getElementById("cart-items");
+let box =
+document.getElementById("cart-items");
 
-let total=0;
 
 
-box.innerHTML="";
+let total = 0;
+
+
+
+box.innerHTML = "";
+
+
+
+
+if(cart.length === 0){
+
+
+box.innerHTML="Your cart is empty";
+
+
+}
+
 
 
 
 cart.forEach((item,index)=>{
 
 
-total+=item.price;
+
+total += item.price;
 
 
-box.innerHTML+=`
 
-<p>
+box.innerHTML += `
 
-${item.name}
+
+<div class="cart-item">
+
+
+<b>${item.name}</b>
+
 
 <br>
 
+
 Sugar: ${item.sugar}
 
+
+
+<br>
+
+
+${item.price.toLocaleString()} Kip
+
+
+
 <button onclick="removeItem(${index})">
+
 ❌
+
 </button>
 
-</p>
+
+
+</div>
+
 
 `;
 
+
+
 });
+
+
 
 
 document.getElementById("cart-total").innerHTML =
 total.toLocaleString();
 
 
+
 }
 
 
 
+
+
+
+
+
+
+// SUPPRIMER PRODUIT
 
 
 function removeItem(index){
 
+
 cart.splice(index,1);
 
+
 showCart();
+
 
 }
 
 
 
+
+
+
+
+
+
+// POPUP CLIENT
 
 
 function openCustomer(){
 
-document.getElementById("customer-popup").style.display="flex";
+
+if(cart.length === 0){
+
+
+alert("Your cart is empty");
+
+
+return;
+
 
 }
 
 
+
+document.getElementById("customer-popup").style.display="flex";
+
+
+}
+
+
+
+
+
+
+
+
+
+// POPUP PAYMENT
 
 
 function openPayment(){
 
+
 document.getElementById("customer-popup").style.display="none";
 
+
+
 document.getElementById("payment-popup").style.display="flex";
+
 
 }
 
 
 
 
+
+
+
+
+
+// ENVOYER COMMANDE WHATSAPP
 
 
 function sendOrder(){
 
 
-let message="☕ Life Coffee Slow Bar\n\n";
+
+let customer =
+
+document.getElementById("customer").value;
 
 
-message+="Order: ODR"+String(orderNumber).padStart(3,"0");
 
-message+="\nCustomer: "+document.getElementById("customer").value;
+let payment =
 
-
-message+="\nPayment: "+
 document.querySelector('input[name="pay"]:checked').value;
 
 
-message+="\n\n";
 
 
 
-let total=0;
+let message =
+
+"☕ Life Coffee Slow Bar\n\n";
+
+
+
+message +=
+
+"Order : ODR" +
+
+String(orderNumber).padStart(3,"0")
+
++ "\n";
+
+
+
+message +=
+
+"Customer : " + customer + "\n";
+
+
+
+message +=
+
+"Payment : " + payment + "\n\n";
+
+
+
+
+
+let total = 0;
+
+
 
 
 cart.forEach(item=>{
 
 
-total+=item.price;
+
+total += item.price;
 
 
-message+=item.name+
-"\nSugar: "+
-item.sugar+
+
+message +=
+
+item.name +
+
+"\nSugar : " +
+
+item.sugar +
+
 "\n\n";
+
 
 
 });
 
 
 
-message+="Total: "+total.toLocaleString()+" Kip";
+
+
+message +=
+
+"Total : " +
+
+total.toLocaleString() +
+
+" Kip";
+
+
+
+
 
 
 
 
 window.open(
 
-"https://wa.me/8562092747227?text="+encodeURIComponent(message)
+"https://wa.me/8562092747227?text="
+
++ encodeURIComponent(message)
 
 );
 
@@ -195,7 +379,15 @@ window.open(
 orderNumber++;
 
 
-localStorage.setItem("orderNumber",orderNumber);
+
+localStorage.setItem(
+
+"orderNumber",
+
+orderNumber
+
+);
+
 
 
 }
@@ -203,8 +395,22 @@ localStorage.setItem("orderNumber",orderNumber);
 
 
 
+
+
+
+
+
+// PANIER MOBILE
+
+
 function openMobileCart(){
 
-document.getElementById("cart").classList.toggle("show-cart");
+
+document
+
+.getElementById("cart")
+
+.classList.toggle("show-cart");
+
 
 }
