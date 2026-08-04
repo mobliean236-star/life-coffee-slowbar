@@ -7,7 +7,7 @@ const products = [
 {
 name:"Espresso",
 price:40000,
-category:"coffee"
+category:"coffee",
 },
 
 
@@ -80,7 +80,7 @@ category:"matcha"
 {
 name:"Matcha Latte",
 price:45000,
-category:"matcha"
+category:"matcha",
 best:true
 },
 
