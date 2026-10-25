@@ -193,7 +193,7 @@ function sendOrder() {
     alert("Please choose a WhatsApp number.");
     return;
   }
-  const url = "https://wa.me/" + selectedNumber + "?text=" + encodeURIComponent(lines.join("\\n"));
+  const url = "https://wa.me/" + selectedNumber + "?text=" + encodeURIComponent(lines.join("\n"));
   const whatsappWindow = window.open(url, "_blank");
   if (!whatsappWindow) {
     alert("WhatsApp could not be opened. Please allow pop-ups and try again.");
