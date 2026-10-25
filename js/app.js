@@ -168,25 +168,20 @@ function sendOrder() {
 
   const lines = [
     "LIFE COFFEE & SLOW BAR",
-    "ORDER " + currentOrder,
-    "--------------------------------",
+    "Order: " + currentOrder,
     "Customer: " + customer,
+    "",
+    ...groupedItems.flatMap(item => [
+      item.quantity + " x " + (item.style ? item.style + " " : "") + item.name +
+        " — " + formatKip(item.price * item.quantity) + " LAK",
+      "  Sugar: " + item.sugar,
+      ...(item.extras && item.extras.length ? ["  Extras: " + item.extras.join(", ")] : [])
+    ]),
+    "",
+    "TOTAL: " + formatKip(total) + " LAK",
     "Payment: " + selectedPayment.value,
     "",
-    "ORDER DETAILS",
-    ...groupedItems.flatMap(item => [
-      item.quantity + " x " + (item.style ? item.style + " " : "") + item.name,
-      "  Sugar: " + item.sugar,
-      ...(item.extras && item.extras.length ? ["  Extras: " + item.extras.join(", ")] : []),
-      "  Subtotal: " + formatKip(item.price * item.quantity) + " LAK",
-      ""
-    ]),
-    "--------------------------------",
-    "TOTAL DUE: " + formatKip(total) + " LAK",
-    "",
-    "Thank you for choosing Life Coffee & Slow Bar.",
-    "Please review the order details and confirm availability.",
-    "We look forward to serving you."
+    "Thank you!"
   ];
 
   const contactChoice = document.querySelector('input[name="whatsapp-contact"]:checked');
