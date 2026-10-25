@@ -167,21 +167,23 @@ function sendOrder() {
   });
 
   const lines = [
-    "LIFE COFFEE & SLOW BAR",
+    "☕ Life Coffee & Slow Bar",
+    "",
     "Order: " + currentOrder,
     "Customer: " + customer,
+    "Payment method: " + selectedPayment.value,
     "",
-    ...groupedItems.flatMap(item => [
-      item.quantity + " x " + (item.style ? item.style + " " : "") + item.name +
-        " — " + formatKip(item.price * item.quantity) + " LAK",
-      "  Sugar: " + item.sugar,
-      ...(item.extras && item.extras.length ? ["  Extras: " + item.extras.join(", ")] : [])
+    ...cart.flatMap(item => [
+      item.name,
+      "Style: " + (item.style || "No preference"),
+      "Sugar: " + item.sugar,
+      ...(item.extras && item.extras.length ? ["Extras: " + item.extras.join(", ")] : []),
+      "Price: " + formatKip(item.price) + " Kip",
+      ""
     ]),
+    "TOTAL: " + formatKip(total) + " Kip",
     "",
-    "TOTAL: " + formatKip(total) + " LAK",
-    "Payment: " + selectedPayment.value,
-    "",
-    "Thank you!"
+    "Please confirm the order and payment at the counter."
   ];
 
   const contactChoice = document.querySelector('input[name="whatsapp-contact"]:checked');
