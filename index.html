@@ -25,6 +25,12 @@
     <a class="nav-order" href="#menu">ORDER NOW <span aria-hidden="true">↗</span></a>
   </nav>
 
+  <section class="experience-strip" aria-label="Life Coffee highlights">
+    <div><span class="strip-icon">✦</span><strong>Thoughtfully made</strong><small>Every cup, with care</small></div>
+    <div><span class="strip-icon">☕</span><strong>Your daily ritual</strong><small>Made fresh to order</small></div>
+    <div><span class="strip-icon">❋</span><strong>A little tropical</strong><small>Inspired by Laos</small></div>
+  </section>
+
   <main>
     <section id="menu" aria-labelledby="menu-title">
       <p class="eyebrow">MADE FRESH, MADE WITH CARE</p>
@@ -51,19 +57,24 @@
         <h2 id="cart-title">Your Order</h2>
         <button type="button" class="cart-close" onclick="closeMobileCart()" aria-label="Close order panel">×</button>
       </div>
-      <p class="order-label">Order <strong id="order-number">ODR001</strong></p>
+      <p class="order-label">YOUR LITTLE RITUAL <strong id="order-number">ODR001</strong></p><p class="cart-intro">Build your perfect cup, then send it straight to our team.</p>
       <div id="cart-items" class="cart-items">Your cart is empty</div>
       <div class="cart-total-row"><span>Total</span><strong><span id="cart-total">0</span> Kip</strong></div>
       <button type="button" class="checkout-btn" onclick="openCustomer()">CONTINUE TO ORDER</button>
-      <p class="cart-note">Your order will be sent to WhatsApp.</p>
+      <p class="cart-note">Made fresh after you order · Sent directly to WhatsApp</p>
     </aside>
   </main>
 
   <div id="sugar-popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="sugar-title">
     <div class="popup-box">
       <button type="button" class="popup-close" onclick="closePopup('sugar-popup')" aria-label="Close">×</button>
-      <p class="eyebrow">CUSTOMISE YOUR DRINK</p>
-      <h2 id="sugar-title">Sugar level</h2>
+      <p class="eyebrow">MAKE IT YOURS</p>
+      <h2 id="sugar-title">Your perfect cup</h2>
+      <p class="customize-intro">A few little details make it just right.</p>
+      <label class="field-label" for="drink-style">Serving style</label>
+      <select id="drink-style"><option value="Iced">Iced</option><option value="Hot">Hot</option><option value="No preference">No preference</option></select>
+      <label class="field-label" for="drink-quantity">Quantity</label>
+      <select id="drink-quantity"><option value="1">1 drink</option><option value="2">2 drinks</option><option value="3">3 drinks</option><option value="4">4 drinks</option><option value="5">5 drinks</option></select>
       <label class="field-label" for="sugar">Choose sugar</label>
       <select id="sugar">
         <option>Normal sugar</option>
@@ -94,8 +105,9 @@
   <div id="payment-popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="payment-title">
     <div class="popup-box">
       <button type="button" class="popup-close" onclick="closePopup('payment-popup')" aria-label="Close">×</button>
-      <p class="eyebrow">PAYMENT METHOD</p>
-      <h2 id="payment-title">Payment</h2>
+      <p class="eyebrow">ONE LAST STEP</p>
+      <h2 id="payment-title">How will you pay?</h2>
+      <p class="customize-intro">Choose your preferred payment method. Our team will confirm the order with you.</p>
       <div class="payment-options">
         <label><input type="radio" name="pay" value="Cash" checked> Cash</label>
         <label><input type="radio" name="pay" value="BCEL QR"> BCEL QR</label>
