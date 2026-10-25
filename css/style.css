@@ -775,3 +775,7 @@ body{background:var(--bg);color:#282c24}
 .hero-corner-logo{position:absolute!important;top:18px!important;left:18px!important;z-index:3;display:block!important;width:38px!important;height:38px!important;min-width:38px!important;max-width:38px!important;min-height:38px!important;max-height:38px!important;object-fit:cover!important;border-radius:50%!important;flex:none!important;border:1px solid rgba(228,206,156,.45);box-shadow:0 3px 12px rgba(0,0,0,.18)}
 .hero-brand-row{display:block!important;margin:0!important}
 @media(min-width:521px){.hero-corner-logo{top:24px!important;left:24px!important;width:46px!important;height:46px!important;min-width:46px!important;max-width:46px!important;min-height:46px!important;max-height:46px!important}}
+
+/* Slightly larger corner logo */
+.hero-corner-logo{width:52px!important;height:52px!important;min-width:52px!important;max-width:52px!important;min-height:52px!important;max-height:52px!important}
+@media(max-width:520px){.hero-corner-logo{width:46px!important;height:46px!important;min-width:46px!important;max-width:46px!important;min-height:46px!important;max-height:46px!important}}
