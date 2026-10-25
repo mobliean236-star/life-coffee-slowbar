@@ -35,7 +35,7 @@
     <section id="menu" aria-labelledby="menu-title">
       <p class="eyebrow">MADE FRESH, MADE WITH CARE</p>
       <h2 id="menu-title">Find your kind of coffee.</h2>
-      <p class="menu-intro">From your first espresso to an iced matcha moment, find your favourite and make it yours.</p>
+      <p class="menu-intro">From bold espresso to tropical favourites and refreshing matcha, discover a little something for every mood.</p>
       <div class="menu-tools">
         <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="menu-search" type="search" placeholder="Find your favourite…" aria-label="Search drinks"></label>
         <label class="sort-wrap"><span>Sort</span><select id="menu-sort" aria-label="Sort drinks"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name A–Z</option></select></label>
@@ -48,7 +48,16 @@
       <div id="coffee-menu" class="menu-container" aria-live="polite"></div>
     </section>
 
-    <button class="mobile-cart-btn" type="button" onclick="openMobileCart()" aria-label="Open your order">
+    <section class="mood-section" aria-labelledby="mood-title">
+    <div class="mood-heading"><p class="eyebrow">WHAT ARE YOU IN THE MOOD FOR?</p><h2 id="mood-title">Your next favourite starts here.</h2><p>Pick a feeling. We’ll help you find your cup.</p></div>
+    <div class="mood-grid">
+      <a href="#menu" class="mood-card mood-coffee" onclick="showCategory('coffee')"><span class="mood-number">01 / COFFEE</span><strong>Bold & familiar</strong><span>Espresso classics and smooth favourites.</span><b>EXPLORE COFFEE ↗</b></a>
+      <a href="#menu" class="mood-card mood-matcha" onclick="showCategory('matcha')"><span class="mood-number">02 / MATCHA & TEA</span><strong>Fresh & vibrant</strong><span>Green matcha, tea and bright flavours.</span><b>EXPLORE TEA ↗</b></a>
+      <a href="#menu" class="mood-card mood-cocoa" onclick="showCategory('noncoffee')"><span class="mood-number">03 / NON COFFEE</span><strong>Sweet little break</strong><span>Chocolate and tropical combinations.</span><b>EXPLORE COCOA ↗</b></a>
+    </div>
+  </section>
+
+  <button class="mobile-cart-btn" type="button" onclick="openMobileCart()" aria-label="Open your order">
       <span aria-hidden="true">🛒</span><span id="cart-count" class="cart-count">0</span>
     </button>
 
@@ -143,17 +152,27 @@
     </div>
   </section>
 
+    <section class="order-steps" aria-label="How to order">
+    <p class="eyebrow">SIMPLE AS YOUR DAILY RITUAL</p>
+    <h2>Three steps to your happy place.</h2>
+    <div class="steps-grid">
+      <div><span>01</span><h3>Find your favourite</h3><p>Explore coffee, matcha, tea and cocoa.</p></div>
+      <div><span>02</span><h3>Make it yours</h3><p>Choose serving style, sugar, quantity and extras.</p></div>
+      <div><span>03</span><h3>Send your order</h3><p>Share your order with our team on WhatsApp.</p></div>
+    </div>
+  </section>
+
   <section class="location" aria-labelledby="location-title">
     <p class="eyebrow">COME SAY HELLO</p>
     <h2 id="location-title">LOCATION</h2>
-    <p>Life Coffee & Slow Bar<br>Luang Prabang, Laos</p>
+    <p>Life Coffee & Slow Bar<br>Luang Prabang, Laos</p><p class="location-note">Come by for your next coffee break. We look forward to welcoming you.</p>
     <div class="map">
       <iframe title="Life Coffee & Slow Bar location on Google Maps" src="https://www.google.com/maps?q=19.893580509785366,102.13925794767623&output=embed" width="100%" height="300" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
     <a href="https://www.google.com/maps?q=19.893683684389714,102.1394086714891" target="_blank" rel="noopener noreferrer">OPEN GOOGLE MAPS</a>
   </section>
 
-  <footer class="site-footer"><span>© Life Coffee & Slow Bar</span><span>Made with care in Luang Prabang</span></footer>
+  <footer class="site-footer"><span>© Life Coffee & Slow Bar</span><span>Three friends. One passion. Every cup with care.</span><a href="#menu">Menu</a><a href="#story">Our story</a><a href="#location-title">Visit us</a></footer>
 
   <script src="js/menu.js"></script>
   <script src="js/app.js"></script>
