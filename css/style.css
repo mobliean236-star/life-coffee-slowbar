@@ -720,3 +720,47 @@ body{background:var(--bg);color:#282c24}
     height: 29px;
   }
 }
+
+
+/* Small brand mark beside the hero kicker, not in the navigation */
+.hero-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 20px;
+}
+.hero-brand-row .hero-kicker {
+  margin: 0;
+}
+.hero-corner-logo {
+  display: block !important;
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  max-width: 42px !important;
+  min-height: 42px !important;
+  max-height: 42px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  flex: 0 0 42px !important;
+}
+@media (max-width: 520px) {
+  .hero-brand-row {
+    gap: 9px;
+    margin-bottom: 18px;
+  }
+  .hero-corner-logo {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    flex-basis: 34px !important;
+  }
+  .hero-brand-row .hero-kicker {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+}
