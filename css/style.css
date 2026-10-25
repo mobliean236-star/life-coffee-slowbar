@@ -770,3 +770,8 @@ body{background:var(--bg);color:#282c24}
 .hero-corner-logo{width:18px!important;height:18px!important;min-width:18px!important;max-width:18px!important;min-height:18px!important;max-height:18px!important;flex:0 0 18px!important;object-fit:cover!important;border-radius:50%!important;opacity:.9;border:1px solid rgba(228,206,156,.35);box-shadow:0 1px 5px rgba(0,0,0,.14)}
 .hero-brand-row .hero-kicker{font-size:10px;letter-spacing:2px;line-height:1.5}
 @media(max-width:520px){.hero-brand-row{gap:6px!important;margin-bottom:18px!important}.hero-corner-logo{width:16px!important;height:16px!important;min-width:16px!important;max-width:16px!important;min-height:16px!important;max-height:16px!important;flex-basis:16px!important}.hero-brand-row .hero-kicker{font-size:8px;letter-spacing:1.5px}}
+
+/* Place the logo discreetly in the upper-left corner of the hero */
+.hero-corner-logo{position:absolute!important;top:18px!important;left:18px!important;z-index:3;display:block!important;width:38px!important;height:38px!important;min-width:38px!important;max-width:38px!important;min-height:38px!important;max-height:38px!important;object-fit:cover!important;border-radius:50%!important;flex:none!important;border:1px solid rgba(228,206,156,.45);box-shadow:0 3px 12px rgba(0,0,0,.18)}
+.hero-brand-row{display:block!important;margin:0!important}
+@media(min-width:521px){.hero-corner-logo{top:24px!important;left:24px!important;width:46px!important;height:46px!important;min-width:46px!important;max-width:46px!important;min-height:46px!important;max-height:46px!important}}
