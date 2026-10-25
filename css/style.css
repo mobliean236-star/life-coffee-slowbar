@@ -698,3 +698,25 @@ body{background:var(--bg);color:#282c24}
  .steps-grid>div{padding:17px 12px}
  .site-footer{gap:12px}
 }
+
+
+/* Brand logo in the navigation */
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+.nav-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.18);
+  flex: 0 0 auto;
+}
+@media (max-width: 520px) {
+  .nav-logo {
+    width: 29px;
+    height: 29px;
+  }
+}
