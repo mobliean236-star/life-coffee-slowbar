@@ -167,17 +167,14 @@ function sendOrder() {
     "Please confirm the order and payment at the counter."
   ];
 
-  const choice = window.prompt(
-    "Choose the WhatsApp number for this order:\n1. Main contact: +856 20 9274 7227\n2. Contact 2: +856 20 5247 0010\n3. Contact 3: +856 20 5981 3736\n\nEnter 1, 2, or 3:",
-    "1"
-  );
-  if (choice === null) return;
-  const selectedIndex = Number.parseInt(choice.trim(), 10) - 1;
-  if (!Number.isInteger(selectedIndex) || selectedIndex < 0 || selectedIndex >= WHATSAPP_NUMBERS.length) {
-    alert("Please enter 1, 2, or 3 to choose a WhatsApp contact.");
+  const contactChoice = document.querySelector('input[name="whatsapp-contact"]:checked');
+  const selectedIndex = contactChoice ? Number.parseInt(contactChoice.value, 10) : 0;
+  const selectedNumber = WHATSAPP_NUMBERS[selectedIndex];
+  if (!selectedNumber) {
+    alert("Please choose a WhatsApp contact.");
     return;
   }
-  const url = "https://wa.me/" + WHATSAPP_NUMBERS[selectedIndex] + "?text=" + encodeURIComponent(lines.join("\\n"));
+  const url = "https://wa.me/" + selectedNumber + "?text=" + encodeURIComponent(lines.join("\\n"));
   const whatsappWindow = window.open(url, "_blank");
   if (!whatsappWindow) {
     alert("WhatsApp could not be opened. Please allow pop-ups and try again.");
