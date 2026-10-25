@@ -13,7 +13,8 @@
     <div class="hero-content">
       <div class="logo-box"><h1>LIFE COFFEE</h1></div>
       <h3>AND SLOW BAR</h3>
-      <p>Luang Prabang</p>
+      <p>Luang Prabang · Laos</p>
+      <a class="hero-cta" href="#menu">EXPLORE THE MENU <span aria-hidden="true">↓</span></a>
     </div>
   </header>
 
@@ -87,15 +88,17 @@
         <label><input type="radio" name="pay" value="Cash" checked> Cash</label>
         <label><input type="radio" name="pay" value="BCEL QR"> BCEL QR</label>
       </div>
-      <div id="bcel-qr-panel" class="bcel-qr-panel" hidden>
-          <p><strong>Scan to pay with BCEL</strong></p>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&amp;margin=12&amp;data=00020101021138670016A00526628466257701082771041802030010324YCOHJKJVNSEURQMFFSHSXHBU53034185802LA6304E313" alt="Life Coffee BCEL payment QR code">
-          <p class="cart-note">After scanning and paying, show your payment confirmation. Please verify the payment in your BCEL account before confirming the order.</p>
-        </div>
-        <p class="cart-note">Please verify payment separately before completing the order.</p>
+      <p class="cart-note">Please verify payment separately before completing the order.</p>
       <button type="button" class="primary-btn" onclick="sendOrder()">SEND ORDER TO WHATSAPP</button>
     </div>
   </div>
+
+  <section class="brand-note" aria-label="Our philosophy">
+    <p class="eyebrow">YOUR DAILY PAUSE</p>
+    <h2>Good coffee. No rush.</h2>
+    <p>Freshly prepared drinks, slow moments and a warm welcome in Luang Prabang.</p>
+    <a href="#menu">FIND YOUR FAVOURITE</a>
+  </section>
 
   <section class="location" aria-labelledby="location-title">
     <p class="eyebrow">COME SAY HELLO</p>
@@ -106,6 +109,8 @@
     </div>
     <a href="https://www.google.com/maps?q=19.893683684389714,102.1394086714891" target="_blank" rel="noopener noreferrer">OPEN GOOGLE MAPS</a>
   </section>
+
+  <footer class="site-footer"><span>© Life Coffee & Slow Bar</span><span>Made with care in Luang Prabang</span></footer>
 
   <script src="js/menu.js"></script>
   <script src="js/app.js"></script>
