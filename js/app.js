@@ -191,21 +191,18 @@ function sendOrder() {
     "Please confirm your order with our team. See you soon!"
   ];
 
-  const message = encodeURIComponent(lines.join("\\n"));
-  let openedCount = 0;
-  WHATSAPP_NUMBERS.forEach((number, index) => {
-    const url = "https://wa.me/" + number + "?text=" + message;
-    const whatsappWindow = window.open(url, "_blank");
-    if (whatsappWindow) openedCount += 1;
-  });
-  if (openedCount === 0) {
-    alert("Your browser blocked the WhatsApp windows. Please allow pop-ups and try sending the order again.");
+  const contactChoice = document.querySelector('input[name="whatsapp-contact"]:checked');
+  const selectedIndex = contactChoice ? Number.parseInt(contactChoice.value, 10) : 0;
+  const selectedNumber = WHATSAPP_NUMBERS[selectedIndex];
+  if (!selectedNumber) {
+    alert("Please choose a WhatsApp number.");
     return;
   }
-  if (openedCount < WHATSAPP_NUMBERS.length) {
-    alert("Your browser opened " + openedCount + " WhatsApp chat(s). Please allow pop-ups if you want to open all three contacts.");
-  } else {
-    alert("Your order message is ready for all three WhatsApp contacts. Please tap Send in each chat to deliver it.");
+  const url = "https://wa.me/" + selectedNumber + "?text=" + encodeURIComponent(lines.join("\\n"));
+  const whatsappWindow = window.open(url, "_blank");
+  if (!whatsappWindow) {
+    alert("WhatsApp could not be opened. Please allow pop-ups and try again.");
+    return;
   }
 
   orderNumber += 1;
