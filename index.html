@@ -87,7 +87,12 @@
         <label><input type="radio" name="pay" value="Cash" checked> Cash</label>
         <label><input type="radio" name="pay" value="BCEL QR"> BCEL QR</label>
       </div>
-      <p class="cart-note">Please verify payment separately before completing the order.</p>
+      <div id="bcel-qr-panel" class="bcel-qr-panel" hidden>
+          <p><strong>Scan to pay with BCEL</strong></p>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&amp;margin=12&amp;data=00020101021138670016A00526628466257701082771041802030010324YCOHJKJVNSEURQMFFSHSXHBU53034185802LA6304E313" alt="Life Coffee BCEL payment QR code">
+          <p class="cart-note">After scanning and paying, show your payment confirmation. Please verify the payment in your BCEL account before confirming the order.</p>
+        </div>
+        <p class="cart-note">Please verify payment separately before completing the order.</p>
       <button type="button" class="primary-btn" onclick="sendOrder()">SEND ORDER TO WHATSAPP</button>
     </div>
   </div>
