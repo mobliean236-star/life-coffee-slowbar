@@ -82,23 +82,6 @@ function showCategory(category) {
     const card = document.createElement("article");
     card.className = "card";
 
-    const photo = document.createElement("img");
-    photo.className = "drink-photo";
-    photo.alt = product.name + " drink";
-    photo.loading = "lazy";
-    photo.decoding = "async";
-    photo.src = makeDrinkIllustration(product);
-    const fallbackSrc = photo.src;
-
-    if (product.image) {
-      const testPhoto = new Image();
-      testPhoto.onload = () => { photo.src = product.image; };
-      testPhoto.onerror = () => { photo.src = fallbackSrc; };
-      testPhoto.referrerPolicy = "no-referrer";
-      testPhoto.src = product.image;
-    }
-    card.appendChild(photo);
-
     if (product.best) {
       const badge = document.createElement("span");
       badge.className = "best";
