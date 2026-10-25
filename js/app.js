@@ -167,28 +167,26 @@ function sendOrder() {
   });
 
   const lines = [
-    "☕ LIFE COFFEE & SLOW BAR",
-    "Order confirmation · " + currentOrder,
-    "",
-    "Hello! Here is your order summary. ☕",
-    "",
+    "LIFE COFFEE & SLOW BAR",
+    "ORDER " + currentOrder,
+    "--------------------------------",
     "Customer: " + customer,
+    "Payment: " + selectedPayment.value,
     "",
-    "YOUR ORDER",
+    "ORDER DETAILS",
     ...groupedItems.flatMap(item => [
-      item.quantity + " × " + (item.style ? item.style + " " : "") + item.name,
-      "   Sugar: " + item.sugar,
-      ...(item.extras && item.extras.length ? ["   Extras: " + item.extras.join(", ")] : []),
-      "   " + formatKip(item.price * item.quantity) + " Kip",
+      item.quantity + " x " + (item.style ? item.style + " " : "") + item.name,
+      "  Sugar: " + item.sugar,
+      ...(item.extras && item.extras.length ? ["  Extras: " + item.extras.join(", ")] : []),
+      "  Subtotal: " + formatKip(item.price * item.quantity) + " LAK",
       ""
     ]),
-    "────────────────────",
-    "TOTAL: " + formatKip(total) + " Kip",
+    "--------------------------------",
+    "TOTAL DUE: " + formatKip(total) + " LAK",
     "",
-    "Payment method: " + selectedPayment.value,
-    "",
-    "Thank you for choosing Life Coffee & Slow Bar! 🤎",
-    "Please confirm your order with our team. See you soon!"
+    "Thank you for choosing Life Coffee & Slow Bar.",
+    "Please review the order details and confirm availability.",
+    "We look forward to serving you."
   ];
 
   const contactChoice = document.querySelector('input[name="whatsapp-contact"]:checked');
