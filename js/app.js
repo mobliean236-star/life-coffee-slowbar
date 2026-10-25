@@ -20,6 +20,8 @@ function refreshOrderNumber() {
 function openSugar(name, price) {
   selectedProduct = { name, price };
   document.getElementById("sugar").value = "Normal sugar";
+  document.getElementById("drink-style").value = "Iced";
+  document.getElementById("drink-quantity").value = "1";
   document.getElementById("extra-shot").checked = false;
   document.getElementById("oat-milk").checked = false;
   document.getElementById("sugar-popup").style.display = "flex";
@@ -29,6 +31,8 @@ function addSugar() {
   if (!selectedProduct) return;
 
   const sugar = document.getElementById("sugar").value;
+  const style = document.getElementById("drink-style").value;
+  const quantity = Number.parseInt(document.getElementById("drink-quantity").value, 10) || 1;
   const extraShot = document.getElementById("extra-shot").checked;
   const oatMilk = document.getElementById("oat-milk").checked;
   const extras = [];
@@ -43,13 +47,9 @@ function addSugar() {
     price += EXTRA_PRICES.oatMilk;
   }
 
-  cart.push({
-    name: selectedProduct.name,
-    basePrice: selectedProduct.price,
-    price,
-    sugar,
-    extras
-  });
+  for (let i = 0; i < quantity; i++) {
+    cart.push({ name: selectedProduct.name, basePrice: selectedProduct.price, price, sugar, style, extras: [...extras] });
+  }
 
   selectedProduct = null;
   closePopup("sugar-popup");
@@ -74,7 +74,7 @@ function showCart() {
     title.textContent = item.name;
     const details = document.createElement("div");
     details.className = "cart-item-details";
-    details.textContent = "Sugar: " + item.sugar + (item.extras.length ? " · " + item.extras.join(", ") : "");
+    details.textContent = item.style + " · Sugar: " + item.sugar + (item.extras.length ? " · " + item.extras.join(", ") : "");
     const bottom = document.createElement("div");
     bottom.className = "cart-item-bottom";
     const price = document.createElement("span");
@@ -156,6 +156,7 @@ function sendOrder() {
     "",
     ...cart.flatMap(item => [
       item.name,
+      "Style: " + (item.style || "No preference"),
       "Sugar: " + item.sugar,
       ...(item.extras.length ? ["Extras: " + item.extras.join(", ")] : []),
       "Price: " + formatKip(item.price) + " Kip",
