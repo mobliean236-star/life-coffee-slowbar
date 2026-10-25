@@ -147,24 +147,48 @@ function sendOrder() {
 
   const currentOrder = "ODR" + String(orderNumber).padStart(3, "0");
   const total = cart.reduce((sum, item) => sum + item.price, 0);
+  const groupedItems = [];
+  const itemKeys = new Map();
+
+  cart.forEach(item => {
+    const key = JSON.stringify({
+      name: item.name,
+      style: item.style || "No preference",
+      sugar: item.sugar,
+      extras: [...(item.extras || [])].sort(),
+      price: item.price
+    });
+    if (itemKeys.has(key)) {
+      groupedItems[itemKeys.get(key)].quantity += 1;
+    } else {
+      itemKeys.set(key, groupedItems.length);
+      groupedItems.push({ ...item, quantity: 1 });
+    }
+  });
+
   const lines = [
-    "☕ Life Coffee & Slow Bar",
+    "☕ LIFE COFFEE & SLOW BAR",
+    "Order confirmation · " + currentOrder,
     "",
-    "Order: " + currentOrder,
+    "Hello! Here is your order summary. ☕",
+    "",
     "Customer: " + customer,
-    "Payment method: " + selectedPayment.value,
     "",
-    ...cart.flatMap(item => [
-      item.name,
-      "Style: " + (item.style || "No preference"),
-      "Sugar: " + item.sugar,
-      ...(item.extras.length ? ["Extras: " + item.extras.join(", ")] : []),
-      "Price: " + formatKip(item.price) + " Kip",
+    "YOUR ORDER",
+    ...groupedItems.flatMap(item => [
+      item.quantity + " × " + (item.style ? item.style + " " : "") + item.name,
+      "   Sugar: " + item.sugar,
+      ...(item.extras && item.extras.length ? ["   Extras: " + item.extras.join(", ")] : []),
+      "   " + formatKip(item.price * item.quantity) + " Kip",
       ""
     ]),
+    "────────────────────",
     "TOTAL: " + formatKip(total) + " Kip",
     "",
-    "Please confirm the order and payment at the counter."
+    "Payment method: " + selectedPayment.value,
+    "",
+    "Thank you for choosing Life Coffee & Slow Bar! 🤎",
+    "Please confirm your order with our team. See you soon!"
   ];
 
   const contactChoice = document.querySelector('input[name="whatsapp-contact"]:checked');
