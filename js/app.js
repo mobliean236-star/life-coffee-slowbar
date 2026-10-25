@@ -166,23 +166,15 @@ function sendOrder() {
     }
   });
 
-  const lines = [
-    "LIFE COFFEE & SLOW BAR",
-    "Order #" + currentOrder,
-    "Customer: " + customer,
-    "Payment: " + selectedPayment.value,
-    "",
-    "ORDER DETAILS",
-    ...cart.flatMap((item, index) => [
-      (index + 1) + ". " + (item.style ? item.style + " " : "") + item.name + " — " + formatKip(item.price) + " Kip",
-      "   Sugar: " + item.sugar,
-      ...(item.extras && item.extras.length ? ["   Extras: " + item.extras.join(", ")] : [])
-    ]),
-    "",
-    "TOTAL: " + formatKip(total) + " Kip",
-    "",
-    "Please confirm this order. Thank you!"
-  ];
+  const orderSummary = cart.map(item =>
+    (item.style ? item.style + " " : "") + item.name +
+    " (" + item.sugar + (item.extras && item.extras.length ? ", " + item.extras.join(", ") : "") + ") — " +
+    formatKip(item.price) + " Kip"
+  ).join(", ");
+  const message = "Life Coffee & Slow Bar order " + currentOrder + " for " + customer +
+    ". Payment: " + selectedPayment.value + ". Order: " + orderSummary +
+    ". Total: " + formatKip(total) + " Kip. Thank you!";
+  const lines = [message];
 
   const contactChoice = document.querySelector('input[name="whatsapp-contact"]:checked');
   const selectedIndex = contactChoice ? Number.parseInt(contactChoice.value, 10) : 0;
