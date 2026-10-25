@@ -424,3 +424,52 @@ body{background:var(--bg);color:#25251f;font-family:Inter,-apple-system,BlinkMac
 .card button{margin-top:auto}
 .card .best{top:16px;right:16px}
 @media(max-width:760px){.card{padding:20px 12px 15px;min-height:180px}.card h3{font-size:17px;margin:22px 4px 8px;min-height:0}.card p{font-size:14px;margin:0 4px 18px}.card button{width:100%;margin:0;padding:10px 4px;font-size:10px}}
+
+
+/* Editorial premium polish and menu controls */
+.topbar{height:72px;padding:0 clamp(18px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:24px;background:#20211b;color:#fffaf0;border-bottom:1px solid rgba(228,206,156,.16)}
+.nav-brand{color:#fffaf0;text-decoration:none;font-family:Georgia,"Times New Roman",serif;font-size:22px;letter-spacing:2px;white-space:nowrap}
+.nav-brand span{color:#d2b47b}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{color:#d4d0c5;text-decoration:none;font-size:13px;transition:color .2s}
+.nav-links a:hover{color:#e4ce9c}
+.nav-order{display:inline-flex;align-items:center;gap:12px;color:#1e1f19;background:#d2b47b;padding:11px 16px;border-radius:4px;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:1.3px;white-space:nowrap}
+.nav-order:hover{background:#ead7ae}
+.hero{min-height:470px}
+.menu-tools{max-width:850px;margin:0 auto 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.search-wrap{display:flex;align-items:center;gap:10px;flex:1;min-width:0;padding:0 15px;background:#fffdf8;border:1px solid #e5e0d5;border-radius:7px;color:#8a806c}
+.search-wrap>span{font-size:25px;line-height:1}
+.search-wrap input{width:100%;min-width:0;padding:13px 0;border:0;outline:none;background:transparent;color:#25251f;font-size:13px}
+.search-wrap input::placeholder{color:#9a978e}
+.sort-wrap{display:flex;align-items:center;gap:8px;color:#77756d;font-size:12px;white-space:nowrap}
+.sort-wrap select{padding:12px 30px 12px 12px;border:1px solid #e5e0d5;border-radius:7px;background:#fffdf8;color:#35352d;font-size:12px}
+.product-description{font-size:12px!important;font-weight:400!important;line-height:1.55;color:#77756d!important;margin:0 8px 14px!important;min-height:38px;letter-spacing:0!important}
+.card .product-price{font-size:16px;margin-top:auto!important;margin-bottom:15px!important;color:#836638!important;font-weight:700}
+.card{min-height:245px}
+.card h3{margin-top:24px}
+.menu-empty{grid-column:1/-1;padding:36px 16px;text-align:center;color:#77756d;background:#fffdf8;border:1px dashed #d8d2c5;border-radius:10px}
+.categories button{min-width:112px}
+#story{scroll-margin-top:20px}
+.story-rule{width:44px;height:2px;background:#b69a65;margin:23px auto}
+.location h2{letter-spacing:0}
+.location>a{margin-top:16px}
+.site-footer{letter-spacing:.2px}
+@media(max-width:760px){
+ .topbar{height:62px;padding:0 15px;gap:10px}
+ .nav-brand{font-size:17px;letter-spacing:1px}
+ .nav-links{gap:12px}
+ .nav-links a{font-size:11px}
+ .nav-order{padding:10px 11px;font-size:9px;gap:5px}
+ .hero{min-height:390px}
+ .menu-tools{flex-direction:column;align-items:stretch;margin-bottom:20px}
+ .search-wrap{flex:none}
+ .sort-wrap{justify-content:space-between}
+ .sort-wrap select{flex:1;max-width:70%}
+ .card{min-height:240px;padding:19px 12px 14px}
+ .card h3{font-size:17px;margin:21px 4px 8px}
+ .product-description{font-size:11px!important;margin:0 4px 12px!important;min-height:52px}
+ .card .product-price{font-size:14px;margin:0 4px 13px!important}
+ .card button{min-height:40px}
+ .categories button{min-width:0;padding:10px 13px}
+}
+@media(max-width:380px){.nav-links{gap:8px}.nav-links a{font-size:10px}.nav-order{font-size:8px;padding:9px 8px}}
