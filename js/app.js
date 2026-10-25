@@ -208,5 +208,12 @@ document.addEventListener("keydown", event => {
   }
 });
 
+document.querySelectorAll('input[name="pay"]').forEach(option => {
+  option.addEventListener("change", () => {
+    const qrPanel = document.getElementById("bcel-qr-panel");
+    if (qrPanel) qrPanel.hidden = option.value !== "BCEL QR" || !option.checked;
+  });
+});
+
 refreshOrderNumber();
 showCart();
