@@ -1,416 +1,212 @@
-console.log("Life Coffee loaded");
+console.log("Life Coffee Slow Bar loaded");
 
-
+const WHATSAPP_NUMBER = "8562092747227";
+const EXTRA_PRICES = { shot: 15000, oatMilk: 10000 };
 
 let cart = [];
-
 let selectedProduct = null;
+let orderNumber = Number.parseInt(localStorage.getItem("orderNumber") || "1", 10);
+if (!Number.isFinite(orderNumber) || orderNumber < 1) orderNumber = 1;
 
-
-
-let orderNumber =
-localStorage.getItem("orderNumber") || 1;
-
-
-
-document.getElementById("order-number").innerHTML =
-"ODR" + String(orderNumber).padStart(3,"0");
-
-
-
-
-
-
-
-// OUVRIR POPUP SUCRE
-
-
-function openSugar(name, price){
-
-
-selectedProduct = {
-
-name:name,
-
-price:price
-
-};
-
-
-
-document.getElementById("sugar-popup").style.display="flex";
-
-
+function formatKip(amount) {
+  return Math.round(amount).toLocaleString("en-US");
 }
 
+function refreshOrderNumber() {
+  const label = document.getElementById("order-number");
+  if (label) label.textContent = "ODR" + String(orderNumber).padStart(3, "0");
+}
 
+function openSugar(name, price) {
+  selectedProduct = { name, price };
+  document.getElementById("sugar").value = "Normal sugar";
+  document.getElementById("extra-shot").checked = false;
+  document.getElementById("oat-milk").checked = false;
+  document.getElementById("sugar-popup").style.display = "flex";
+}
 
+function addSugar() {
+  if (!selectedProduct) return;
 
+  const sugar = document.getElementById("sugar").value;
+  const extraShot = document.getElementById("extra-shot").checked;
+  const oatMilk = document.getElementById("oat-milk").checked;
+  const extras = [];
+  let price = selectedProduct.price;
 
+  if (extraShot) {
+    extras.push("Extra shot");
+    price += EXTRA_PRICES.shot;
+  }
+  if (oatMilk) {
+    extras.push("Oat milk");
+    price += EXTRA_PRICES.oatMilk;
+  }
 
+  cart.push({
+    name: selectedProduct.name,
+    basePrice: selectedProduct.price,
+    price,
+    sugar,
+    extras
+  });
 
+  selectedProduct = null;
+  closePopup("sugar-popup");
+  showCart();
+}
 
-// AJOUT AU PANIER
+function showCart() {
+  const box = document.getElementById("cart-items");
+  let total = 0;
+  box.replaceChildren();
 
+  if (cart.length === 0) {
+    box.textContent = "Your cart is empty";
+  }
 
-function addSugar(){
+  cart.forEach((item, index) => {
+    total += item.price;
+    const row = document.createElement("div");
+    row.className = "cart-item";
 
+    const title = document.createElement("strong");
+    title.textContent = item.name;
+    const details = document.createElement("div");
+    details.className = "cart-item-details";
+    details.textContent = "Sugar: " + item.sugar + (item.extras.length ? " · " + item.extras.join(", ") : "");
+    const bottom = document.createElement("div");
+    bottom.className = "cart-item-bottom";
+    const price = document.createElement("span");
+    price.className = "item-price";
+    price.textContent = formatKip(item.price) + " Kip";
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "remove-btn";
+    remove.textContent = "Remove";
+    remove.setAttribute("aria-label", "Remove " + item.name + " from order");
+    remove.addEventListener("click", () => removeItem(index));
 
+    bottom.append(price, remove);
+    row.append(title, details, bottom);
+    box.appendChild(row);
+  });
 
-let sugar =
-document.getElementById("sugar").value;
+  document.getElementById("cart-total").textContent = formatKip(total);
+  document.getElementById("cart-count").textContent = String(cart.length);
+  refreshOrderNumber();
+}
 
+function removeItem(index) {
+  cart.splice(index, 1);
+  showCart();
+}
 
+function openCustomer() {
+  if (cart.length === 0) {
+    alert("Your cart is empty. Please add a drink first.");
+    return;
+  }
+  closeMobileCart();
+  document.getElementById("customer-popup").style.display = "flex";
+  document.getElementById("customer").focus();
+}
 
-cart.push({
+function openPayment() {
+  const customerInput = document.getElementById("customer");
+  const customer = customerInput.value.trim();
+  if (!customer) {
+    alert("Please enter the customer's name.");
+    customerInput.focus();
+    return;
+  }
+  customerInput.value = customer;
+  closePopup("customer-popup");
+  document.getElementById("payment-popup").style.display = "flex";
+}
 
+function sendOrder() {
+  if (cart.length === 0) {
+    alert("Your cart is empty. Please add a drink first.");
+    closePopup("payment-popup");
+    return;
+  }
 
-name:selectedProduct.name,
+  const customer = document.getElementById("customer").value.trim();
+  if (!customer) {
+    closePopup("payment-popup");
+    openCustomer();
+    return;
+  }
 
+  const selectedPayment = document.querySelector('input[name="pay"]:checked');
+  if (!selectedPayment) {
+    alert("Please choose a payment method.");
+    return;
+  }
 
-price:selectedProduct.price,
+  const currentOrder = "ODR" + String(orderNumber).padStart(3, "0");
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  const lines = [
+    "☕ Life Coffee & Slow Bar",
+    "",
+    "Order: " + currentOrder,
+    "Customer: " + customer,
+    "Payment method: " + selectedPayment.value,
+    "",
+    ...cart.flatMap(item => [
+      item.name,
+      "Sugar: " + item.sugar,
+      ...(item.extras.length ? ["Extras: " + item.extras.join(", ")] : []),
+      "Price: " + formatKip(item.price) + " Kip",
+      ""
+    ]),
+    "TOTAL: " + formatKip(total) + " Kip",
+    "",
+    "Please confirm the order and payment at the counter."
+  ];
 
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+  const whatsappWindow = window.open(url, "_blank");
+  if (!whatsappWindow) {
+    alert("WhatsApp could not be opened. Please allow pop-ups and try again.");
+    return;
+  }
 
-sugar:sugar
+  orderNumber += 1;
+  localStorage.setItem("orderNumber", String(orderNumber));
+  cart = [];
+  document.getElementById("customer").value = "";
+  document.querySelector('input[name="pay"][value="Cash"]').checked = true;
+  closePopup("payment-popup");
+  showCart();
+}
 
+function openMobileCart() {
+  document.getElementById("cart").classList.toggle("show-cart");
+}
 
+function closeMobileCart() {
+  document.getElementById("cart").classList.remove("show-cart");
+}
+
+function closePopup(id) {
+  const popup = document.getElementById(id);
+  if (popup) popup.style.display = "none";
+}
+
+document.querySelectorAll(".popup").forEach(popup => {
+  popup.addEventListener("click", event => {
+    if (event.target === popup) closePopup(popup.id);
+  });
 });
 
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    document.querySelectorAll(".popup").forEach(popup => closePopup(popup.id));
+    closeMobileCart();
+  }
+});
 
-
-
-document.getElementById("sugar-popup").style.display="none";
-
-
-
+refreshOrderNumber();
 showCart();
-
-
-}
-
-
-
-
-
-
-
-
-// AFFICHER PANIER
-
-
-function showCart(){
-
-
-let box =
-document.getElementById("cart-items");
-
-
-
-let total = 0;
-
-
-
-box.innerHTML = "";
-
-
-
-
-if(cart.length === 0){
-
-
-box.innerHTML="Your cart is empty";
-
-
-}
-
-
-
-
-cart.forEach((item,index)=>{
-
-
-
-total += item.price;
-
-
-
-box.innerHTML += `
-
-
-<div class="cart-item">
-
-
-<b>${item.name}</b>
-
-
-<br>
-
-
-Sugar: ${item.sugar}
-
-
-
-<br>
-
-
-${item.price.toLocaleString()} Kip
-
-
-
-<button onclick="removeItem(${index})">
-
-❌
-
-</button>
-
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
-
-
-document.getElementById("cart-total").innerHTML =
-total.toLocaleString();
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// SUPPRIMER PRODUIT
-
-
-function removeItem(index){
-
-
-cart.splice(index,1);
-
-
-showCart();
-
-
-}
-
-
-
-
-
-
-
-
-
-// POPUP CLIENT
-
-
-function openCustomer(){
-
-
-if(cart.length === 0){
-
-
-alert("Your cart is empty");
-
-
-return;
-
-
-}
-
-
-
-document.getElementById("customer-popup").style.display="flex";
-
-
-}
-
-
-
-
-
-
-
-
-
-// POPUP PAYMENT
-
-
-function openPayment(){
-
-
-document.getElementById("customer-popup").style.display="none";
-
-
-
-document.getElementById("payment-popup").style.display="flex";
-
-
-}
-
-
-
-
-
-
-
-
-
-// ENVOYER COMMANDE WHATSAPP
-
-
-function sendOrder(){
-
-
-
-let customer =
-
-document.getElementById("customer").value;
-
-
-
-let payment =
-
-document.querySelector('input[name="pay"]:checked').value;
-
-
-
-
-
-let message =
-
-"☕ Life Coffee Slow Bar\n\n";
-
-
-
-message +=
-
-"Order : ODR" +
-
-String(orderNumber).padStart(3,"0")
-
-+ "\n";
-
-
-
-message +=
-
-"Customer : " + customer + "\n";
-
-
-
-message +=
-
-"Payment : " + payment + "\n\n";
-
-
-
-
-
-let total = 0;
-
-
-
-
-cart.forEach(item=>{
-
-
-
-total += item.price;
-
-
-
-message +=
-
-item.name +
-
-"\nSugar : " +
-
-item.sugar +
-
-"\n\n";
-
-
-
-});
-
-
-
-
-
-message +=
-
-"Total : " +
-
-total.toLocaleString() +
-
-" Kip";
-
-
-
-
-
-
-
-
-window.open(
-
-"https://wa.me/8562092747227?text="
-
-+ encodeURIComponent(message)
-
-);
-
-
-
-orderNumber++;
-
-
-
-localStorage.setItem(
-
-"orderNumber",
-
-orderNumber
-
-);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// PANIER MOBILE
-
-
-function openMobileCart(){
-
-
-document
-
-.getElementById("cart")
-
-.classList.toggle("show-cart");
-
-
-}
