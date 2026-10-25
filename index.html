@@ -19,11 +19,21 @@
     </div>
   </header>
 
+  <nav class="topbar" aria-label="Main navigation">
+    <a class="nav-brand" href="#">LIFE <span>COFFEE</span></a>
+    <div class="nav-links"><a href="#menu">Menu</a><a href="#story">Our story</a><a href="#location-title">Visit us</a></div>
+    <a class="nav-order" href="#menu">ORDER NOW <span aria-hidden="true">↗</span></a>
+  </nav>
+
   <main>
     <section id="menu" aria-labelledby="menu-title">
       <p class="eyebrow">MADE FRESH, MADE WITH CARE</p>
       <h2 id="menu-title">Find your kind of coffee.</h2>
       <p class="menu-intro">From your first espresso to an iced matcha moment, find your favourite and make it yours.</p>
+      <div class="menu-tools">
+        <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="menu-search" type="search" placeholder="Find your favourite…" aria-label="Search drinks"></label>
+        <label class="sort-wrap"><span>Sort</span><select id="menu-sort" aria-label="Sort drinks"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name A–Z</option></select></label>
+      </div>
       <div class="categories" role="group" aria-label="Menu categories">
         <button type="button" class="category-btn active" data-category="coffee" onclick="showCategory('coffee')">Coffee</button>
         <button type="button" class="category-btn" data-category="matcha" onclick="showCategory('matcha')">Matcha & Tea</button>
@@ -95,10 +105,10 @@
     </div>
   </div>
 
-  <section class="brand-note" aria-label="Our philosophy">
-    <p class="eyebrow">YOUR DAILY PAUSE</p>
+  <section class="brand-note" id="story" aria-label="Our philosophy">
     <p class="eyebrow">THE LIFE COFFEE FEELING</p>
     <h2>A little slower. A little better.</h2>
+    <div class="story-rule" aria-hidden="true"></div>
     <p>Thoughtfully made drinks, easy conversations and a cosy corner to reset — right here in Luang Prabang.</p>
     <a href="#menu">COME FIND YOUR FAVOURITE</a>
   </section>
