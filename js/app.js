@@ -1,6 +1,6 @@
 console.log("Life Coffee Slow Bar loaded");
 
-const WHATSAPP_NUMBER = "8562092747227";
+const WHATSAPP_NUMBERS = ["8562092747227", "8562052470010", "8562059813736"];
 const EXTRA_PRICES = { shot: 15000, oatMilk: 10000 };
 
 let cart = [];
@@ -167,7 +167,17 @@ function sendOrder() {
     "Please confirm the order and payment at the counter."
   ];
 
-  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+  const choice = window.prompt(
+    "Choose the WhatsApp number for this order:\n1. Main contact: +856 20 9274 7227\n2. Contact 2: +856 20 5247 0010\n3. Contact 3: +856 20 5981 3736\n\nEnter 1, 2, or 3:",
+    "1"
+  );
+  if (choice === null) return;
+  const selectedIndex = Number.parseInt(choice.trim(), 10) - 1;
+  if (!Number.isInteger(selectedIndex) || selectedIndex < 0 || selectedIndex >= WHATSAPP_NUMBERS.length) {
+    alert("Please enter 1, 2, or 3 to choose a WhatsApp contact.");
+    return;
+  }
+  const url = "https://wa.me/" + WHATSAPP_NUMBERS[selectedIndex] + "?text=" + encodeURIComponent(lines.join("\\n"));
   const whatsappWindow = window.open(url, "_blank");
   if (!whatsappWindow) {
     alert("WhatsApp could not be opened. Please allow pop-ups and try again.");
