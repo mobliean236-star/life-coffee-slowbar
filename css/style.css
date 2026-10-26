@@ -1780,3 +1780,31 @@ body:before{
   background:linear-gradient(135deg,transparent 35%,#b99650 36% 46%,transparent 47%) left center/14px 5px repeat-x;
   opacity:.8;
 }
+
+
+/* Traditional Lao textile-inspired geometric border, in muted gold */
+body:after{
+  border:1px solid rgba(190,151,75,.55);
+  box-shadow:inset 0 0 0 4px rgba(190,151,75,.06);
+}
+body:before{
+  background:
+    repeating-linear-gradient(45deg,transparent 0 7px,rgba(190,151,75,.55) 7px 8px,transparent 8px 15px),
+    repeating-linear-gradient(-45deg,transparent 0 7px,rgba(190,151,75,.42) 7px 8px,transparent 8px 15px);
+  background-size:18px 18px,18px 18px;
+  background-repeat:repeat-x,repeat-x;
+  background-position:top left,bottom left;
+  opacity:.42;
+  inset:11px 15px;
+  mask-image:linear-gradient(to right,black,black);
+}
+@media(max-width:700px){
+  body:before{inset:6px 10px;background-size:14px 14px,14px 14px}
+}
+/* A restrained textile diamond motif beneath section headings */
+.section-title:after,.section-heading:after{
+  width:70px;
+  height:8px;
+  background:linear-gradient(45deg,transparent 42%,#b99650 43% 55%,transparent 56%) left center/12px 8px repeat-x;
+  opacity:.85;
+}
