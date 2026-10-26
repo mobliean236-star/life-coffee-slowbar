@@ -1594,7 +1594,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 :root{color-scheme:light;--gold:#718264;--gold-light:#dfe7d8;--bg:#f7f5ef;--panel:#fffdf8;--muted:#70766b;--line:#e2e5da}
 html{scroll-padding-top:84px}
 body{background:#f7f5ef!important;color:#29382c!important;font-family:"DM Sans",Arial,sans-serif!important}
-.hero{position:relative;isolation:isolate;min-height:clamp(470px,60vw,680px)!important;padding:72px 22px!important;overflow:visible!important;border:0!important;background:linear-gradient(180deg,rgba(15,26,18,.26),rgba(15,26,18,.73)),url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=2000&q=85") center 52%/cover no-repeat!important;color:#fffdf8!important}
+.hero{position:relative;isolation:isolate;min-height:clamp(470px,60vw,680px)!important;padding:72px 22px!important;overflow:visible!important;border:0!important;background:linear-gradient(180deg,rgba(15,26,18,.26),rgba(15,26,18,.73)),url("https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=2000&q=85") center 52%/cover no-repeat!important;color:#fffdf8!important}
 .hero:before{content:"";position:absolute;inset:18px;border:1px solid rgba(255,253,248,.34);pointer-events:none;z-index:-1}
 .hero .hero-kicker{color:#e6e9dd!important;font-size:10px!important;letter-spacing:3px!important;font-weight:600!important;margin-bottom:25px!important}
 .logo-box{border:0!important;padding:0!important;max-width:900px!important}
