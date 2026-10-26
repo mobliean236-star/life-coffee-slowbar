@@ -1133,3 +1133,85 @@ main{background:#fbf5ed!important}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #a86b4a!important;outline-offset:3px}
 @media(max-width:760px){.hero{min-height:560px!important;min-height:68svh!important}.logo-box{padding:20px 15px!important}.logo-box h1{letter-spacing:3px!important}.menu-container{grid-template-columns:repeat(2,minmax(0,1fr))!important}.card{border-radius:12px!important}.topbar{background:#fbf5ed!important}}
 @media(max-width:520px){.hero{min-height:500px!important;min-height:64svh!important;padding:44px 18px!important}.hero:after{width:350px;height:350px;right:-210px;top:-120px}.signature-intro{padding:66px 20px!important}.signature-intro h2{font-size:42px!important}.menu-container{grid-template-columns:1fr!important}.category-btn{padding:10px 15px!important}.site-footer{gap:12px}}
+
+
+/* Art direction correction: refined cocoa + matcha palette, clean title, legible layout */
+:root{color-scheme:light!important;--gold:#60785b!important;--gold-light:#8fa184!important;--bg:#f7f5ef!important;--panel:#fffdf8!important;--muted:#68685e!important;--line:#e5e1d6!important}
+body{background:#f7f5ef!important;color:#292b24!important}
+.hero{background:linear-gradient(135deg,#28372d 0%,#344b3b 54%,#52664e 100%)!important;background-image:linear-gradient(135deg,#28372d 0%,#344b3b 54%,#52664e 100%)!important;min-height:clamp(440px,58vh,620px)!important;min-height:clamp(440px,58svh,620px)!important;padding:clamp(48px,7vw,88px) 24px!important;text-align:center!important;justify-content:center!important}
+.hero:after{display:none!important;content:none!important}
+.hero:before{display:none!important;content:none!important}
+.hero-content{max-width:850px!important;margin:auto!important;text-align:center!important}
+.hero-kicker{color:#dce5d8!important;letter-spacing:2.6px!important}
+.logo-box{border:1px solid rgba(255,255,255,.68)!important;background:transparent!important;padding:20px clamp(18px,4vw,40px)!important}
+.logo-box h1{color:#fffdf8!important;letter-spacing:clamp(3px,.9vw,9px)!important}
+.hero h3{color:#f5f1e7!important;font-family:"Playfair Display",Georgia,serif!important;font-weight:400!important;letter-spacing:0!important}
+.hero-subtitle{color:#dce4d8!important}
+.hero-cta{background:#e8e3d4!important;color:#28372d!important;border-color:#e8e3d4!important}
+.hero-cta:hover{background:#fffdf8!important;color:#28372d!important;border-color:#fffdf8!important}
+.topbar{background:#fbfaf5!important;border-color:#e3dfd4!important}
+.nav-brand,.nav-links a{color:#30382d!important}
+.nav-order,.checkout-btn{background:#435a43!important;color:#fffdf8!important;border-color:#435a43!important}
+.nav-order:hover,.checkout-btn:hover{background:#2b3c2d!important;color:#fff!important;border-color:#2b3c2d!important}
+.language-select{background:#fffdf8!important;color:#30382d!important;border-color:#d9ded2!important}
+.signature-intro{background:#e8e8dc!important;color:#2f392d!important;border-color:#d9ddcf!important}
+.signature-intro .eyebrow{color:#63765c!important}
+.signature-intro h2{color:#2f392d!important}
+.signature-intro h2 em{color:#60785b!important}
+.signature-intro-inner>p:not(.eyebrow){color:#62685c!important}
+.signature-link{color:#40563c!important;border-color:#8d9b82!important}
+.experience-strip{background:#dce4d7!important;color:#344431!important}
+.experience-strip .strip-icon{color:#637d5b!important}
+.experience-strip small{color:#687663!important}
+.editorial-feature{background:#f7f5ef!important;color:#292b24!important}
+.editorial-heading h2{color:#292b24!important}
+.editorial-heading h2 em{color:#60785b!important}
+.editorial-heading>p:last-child{color:#68685e!important}
+.editorial-card{min-height:390px!important}
+.editorial-card:before{filter:saturate(.78)!important}
+.editorial-card:after{background:linear-gradient(180deg,rgba(24,33,25,.12),transparent 25%,rgba(24,33,25,.78))!important}
+.editorial-card-bottom b{border-color:rgba(255,255,255,.72)!important}
+.editorial-signoff{color:#73766b!important}
+#menu,.mood-section,.values-section,.order-steps,.location{background:#f7f5ef!important;color:#292b24!important}
+#menu h2,.mood-heading h2,.values-heading h2,.order-steps h2,.location h2{color:#292b24!important}
+.eyebrow{color:#60785b!important}
+.menu-intro,.mood-heading>p:last-child{color:#68685e!important}
+.search-wrap,.sort-wrap{background:#fffdf8!important;border:1px solid #e0ded3!important;box-shadow:none!important}
+.search-wrap input,.sort-wrap select{color:#292b24!important}
+.categories{gap:8px!important}
+.category-btn{background:#fffdf8!important;color:#4d5d47!important;border:1px solid #dce0d5!important;border-radius:5px!important;padding:11px 18px!important}
+.category-btn.active,.category-btn[aria-pressed="true"]{background:#435a43!important;color:#fffdf8!important;border-color:#435a43!important}
+.menu-container{gap:18px!important}
+.card{background:#fffdf8!important;color:#292b24!important;border:1px solid #e7e2d7!important;border-radius:8px!important;box-shadow:0 4px 16px rgba(41,43,36,.035)!important}
+.card:hover{box-shadow:0 10px 24px rgba(41,43,36,.08)!important;transform:translateY(-3px)!important}
+.card h3,.card h4,.card .price{color:#292b24!important}
+.card p,.card .description{color:#6d6d63!important;line-height:1.7!important}
+.card button{background:#435a43!important;color:#fffdf8!important;border:1px solid #435a43!important;border-radius:5px!important}
+.card button:hover{background:#2b3c2d!important}
+.mood-card{border:1px solid #e1e3d8!important;border-radius:8px!important;background:#e9e9df!important;color:#30382d!important}
+.mood-card:nth-child(2){background:#dce6d9!important;border-color:#d2ddce!important}
+.mood-card:nth-child(3){background:#eee1d7!important;border-color:#e5d3c6!important}
+.mood-card strong{color:#30382d!important}
+.mood-number,.mood-card b{color:#50664a!important}
+.value-card,.steps-grid>div{background:#fffdf8!important;color:#292b24!important;border:1px solid #e7e2d7!important;border-radius:8px!important;box-shadow:none!important}
+.value-card h3,.steps-grid h3{color:#292b24!important}
+.value-card p,.steps-grid p,.location-note{color:#68685e!important}
+.value-card>span,.steps-grid>div>span{color:#60785b!important}
+.location .map{filter:saturate(.72)!important}
+.location>a{color:#435a43!important;border-color:#8fa184!important}
+.site-footer{background:#29372d!important;color:#f6f5ec!important;border-top:3px solid #83947a!important}
+.site-footer a{color:#f6f5ec!important}
+.cart{background:#fffdf8!important;color:#292b24!important;border-left:1px solid #e2dfd4!important;box-shadow:-10px 0 34px rgba(30,42,29,.08)!important}
+.cart-header,.cart-total-row,.cart-item{border-color:#e7e2d7!important}
+.cart-note,.cart-intro,.customize-intro{color:#6d6d63!important}
+.item-price{color:#435a43!important}
+.remove-btn{color:#945b43!important}
+.popup{background:rgba(35,47,36,.48)!important;backdrop-filter:blur(4px)}
+.popup-box{background:#fffdf8!important;color:#292b24!important;border:1px solid #e1dfd4!important;border-radius:10px!important;box-shadow:0 22px 70px rgba(28,37,28,.18)!important}
+.popup-box select,.popup-box input:not([type=checkbox]){background:#fff!important;color:#292b24!important;border:1px solid #dcded4!important;border-radius:5px!important}
+.field-label{color:#45533f!important}
+.popup-close,.cart-close{color:#435a43!important}
+.mobile-cart-btn{background:#435a43!important;color:#fffdf8!important;border:1px solid #435a43!important;box-shadow:0 8px 24px rgba(35,51,35,.2)!important}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #60785b!important;outline-offset:3px}
+@media(max-width:760px){.hero{min-height:500px!important;min-height:60svh!important}.editorial-card{min-height:320px!important}.topbar{background:#fbfaf5!important}}
+@media(max-width:520px){.hero{min-height:460px!important;min-height:58svh!important;padding:42px 18px!important}.hero:after{display:none!important}.logo-box{padding:18px 14px!important}.logo-box h1{font-size:clamp(38px,10vw,56px)!important;letter-spacing:2px!important}.hero h3{font-size:26px!important}.signature-intro{padding:58px 20px!important}.signature-intro h2{font-size:40px!important}.editorial-card{min-height:310px!important}.menu-container{grid-template-columns:1fr!important}.category-btn{padding:10px 14px!important}}
