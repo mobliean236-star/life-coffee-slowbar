@@ -821,3 +821,31 @@ body{background:var(--bg);color:#282c24}
 .category-btn:hover,.checkout-btn:hover,.primary-btn:hover,.hero-cta:hover{filter:brightness(1.06)}
 .category-btn:active,.checkout-btn:active,.primary-btn:active,.hero-cta:active{transform:scale(.985)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* Life Coffee monochrome luxury identity */
+:root{color-scheme:light}
+body{background:#fff;color:#111}
+a{color:inherit}
+.site-header,.topbar,.navbar,.nav-bar{background:#fff!important;color:#111!important;border-color:#e8e8e8!important}
+.signature-intro{background:#0a0a0a!important;color:#fff!important;border-bottom:1px solid #222!important}
+.signature-intro:before,.signature-intro:after{border-color:rgba(255,255,255,.10)!important}
+.signature-mark{border-color:#777!important;color:#fff!important}
+.signature-intro .eyebrow,.signature-intro h2 em{color:#d9d9d9!important}
+.signature-intro-inner>p:not(.eyebrow){color:#c9c9c9!important}
+.signature-link{color:#fff!important;border-color:#777!important}
+.eyebrow{color:#555!important;letter-spacing:2px}
+button,.primary-btn,.hero-cta,.checkout-btn{background:#111!important;color:#fff!important;border:1px solid #111!important}
+button:hover,.primary-btn:hover,.hero-cta:hover,.checkout-btn:hover{background:#fff!important;color:#111!important;border-color:#111!important}
+.category-btn{background:#fff!important;color:#111!important;border:1px solid #d7d7d7!important}
+.category-btn.active,.category-btn[aria-pressed="true"]{background:#111!important;color:#fff!important;border-color:#111!important}
+.card,.mood-card,.value-card,.steps-grid>div{background:#fff!important;color:#111!important;border-color:#e5e5e5!important;box-shadow:0 8px 24px rgba(0,0,0,.035)}
+.card:hover,.value-card:hover{box-shadow:0 14px 30px rgba(0,0,0,.09)!important}
+.values-section,.order-steps,.location,.menu-section,.story-section{background:#fff!important;color:#111!important}
+.values-heading h2,.order-steps h2,.location h2,.menu-section h2,.story-section h2{color:#111!important}
+.value-card>span,.steps-grid>div>span{color:#777!important}
+.site-footer{background:#0a0a0a!important;color:#fff!important;border-color:#222!important}
+.site-footer a{color:#fff!important}
+input,select,textarea{border-color:#d6d6d6!important;border-radius:2px!important}
+:focus-visible{outline:2px solid #111!important;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
