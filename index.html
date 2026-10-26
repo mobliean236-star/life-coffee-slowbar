@@ -35,7 +35,17 @@
 
   <nav class="topbar" aria-label="Main navigation">
     <a class="nav-brand" href="#" aria-label="Life Coffee & Slow Bar home">LIFE <span>COFFEE</span></a>
-    <div class="nav-links"><a href="#menu">Menu</a><a href="#story">Our story</a><a href="#location-title">Visit us</a></div>
+    <div class="nav-links">
+      <div class="nav-dropdown">
+        <a class="nav-menu-trigger" href="#menu" aria-haspopup="true">Menu <span aria-hidden="true">⌄</span></a>
+        <div class="nav-dropdown-panel" aria-label="Menu categories">
+          <a href="#menu" onclick="showCategory('coffee')"><span>01</span> Coffee</a>
+          <a href="#menu" onclick="showCategory('matcha')"><span>02</span> Matcha &amp; Tea</a>
+          <a href="#menu" onclick="showCategory('noncoffee')"><span>03</span> Cocoa &amp; More</a>
+        </div>
+      </div>
+      <a href="#story">Our story</a><a href="#location-title">Visit us</a>
+    </div>
     <select id="language-select" class="language-select" aria-label="Choose language"><option value="en">EN</option><option value="lo">ລາວ</option></select>
     <a class="nav-order" href="#menu">ORDER NOW <span aria-hidden="true">↗</span></a>
   </nav>
@@ -113,14 +123,6 @@
         <button type="button" class="cart-close" onclick="closeMobileCart()" aria-label="Close order panel">×</button>
       </div>
       <div class="order-meta"><p class="order-label">YOUR LITTLE RITUAL <strong id="order-number">ODR001</strong></p><p class="cart-intro">Your favourites, all in one place.</p></div>
-      <div class="cart-browse">
-        <span class="cart-browse-label">NOT SURE WHAT TO TRY?</span>
-        <div class="cart-browse-links">
-          <button type="button" onclick="showCategory('coffee');document.getElementById('menu').scrollIntoView({behavior:'smooth'});closeMobileCart()">Coffee</button>
-          <button type="button" onclick="showCategory('matcha');document.getElementById('menu').scrollIntoView({behavior:'smooth'});closeMobileCart()">Matcha & tea</button>
-          <button type="button" onclick="showCategory('noncoffee');document.getElementById('menu').scrollIntoView({behavior:'smooth'});closeMobileCart()">Cocoa & more</button>
-        </div>
-      </div>
       <div id="cart-items" class="cart-items">Your cart is empty</div>
       <div class="cart-total-row"><span>Total</span><strong><span id="cart-total">0</span> Kip</strong></div>
       <button type="button" class="checkout-btn" onclick="openCustomer()">CONTINUE TO ORDER</button>
