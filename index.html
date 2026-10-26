@@ -26,31 +26,27 @@
   <header class="hero">
     <div class="hero-content">
       <p class="hero-kicker">SPECIALTY COFFEE · LUANG PRABANG</p>
-      <div class="logo-box"><h1>LIFE COFFEE</h1></div>
+      <div class="logo-box"><h1>LIFE COFFEE <span class="hero-title-sub">&amp; SLOW BAR</span></h1></div>
       <h3>Slow mornings. Better coffee.</h3>
       <p class="hero-subtitle">Your little pause in the heart of Laos.</p>
-      <a class="hero-cta" href="#menu">DISCOVER OUR MENU <span aria-hidden="true">↘</span></a>
+      <div class="hero-menu-dropdown" id="hero-menu-dropdown">
+        <button class="hero-cta" id="hero-menu-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="hero-menu-panel">DISCOVER OUR MENU <span aria-hidden="true">⌄</span></button>
+        <div class="hero-menu-panel" id="hero-menu-panel" aria-label="Browse menu categories" hidden>
+          <a href="#menu" onclick="showCategory('coffee');closeHeroMenu()"><span>01</span> Coffee</a>
+          <a href="#menu" onclick="showCategory('matcha');closeHeroMenu()"><span>02</span> Matcha &amp; Tea</a>
+          <a href="#menu" onclick="showCategory('noncoffee');closeHeroMenu()"><span>03</span> Cocoa &amp; More</a>
+          <a href="#menu" onclick="document.getElementById('menu-search').focus();closeHeroMenu()"><span>04</span> Search all drinks</a>
+        </div>
+      </div>
     </div>
   </header>
 
   <nav class="topbar" aria-label="Main navigation">
     <a class="nav-brand" href="#" aria-label="Life Coffee & Slow Bar home">LIFE <span>COFFEE</span></a>
-    <div class="nav-links">
-      <div class="nav-dropdown" id="nav-menu-dropdown">
-        <button class="nav-menu-trigger" id="nav-menu-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="nav-menu-panel">Menu <span aria-hidden="true">⌄</span></button>
-        <div class="nav-dropdown-panel" id="nav-menu-panel" aria-label="Menu categories" hidden>
-          <a href="#menu" onclick="showCategory('coffee');closeNavMenu()"><span>01</span> Coffee</a>
-          <a href="#menu" onclick="showCategory('matcha');closeNavMenu()"><span>02</span> Matcha &amp; Tea</a>
-          <a href="#menu" onclick="showCategory('noncoffee');closeNavMenu()"><span>03</span> Cocoa &amp; More</a>
-          <a href="#menu" onclick="showCategory('coffee');document.getElementById('menu-search').focus();closeNavMenu()"><span>04</span> Search all drinks</a>
-        </div>
-      </div>
-      <a href="#story">Our story</a><a href="#location-title">Visit us</a>
-    </div>
+    <div class="nav-links"><a href="#menu">Menu</a><a href="#story">Our story</a><a href="#location-title">Visit us</a></div>
     <select id="language-select" class="language-select" aria-label="Choose language"><option value="en">EN</option><option value="lo">ລາວ</option></select>
     <a class="nav-order" href="#menu">ORDER NOW <span aria-hidden="true">↗</span></a>
-  </nav>
-  <section class="signature-intro" aria-label="Welcome to Life Coffee">
+  </nav>  <section class="signature-intro" aria-label="Welcome to Life Coffee">
     <div class="signature-intro-inner">
       <span class="signature-mark" aria-hidden="true">✳</span>
       <p class="eyebrow">A SLOWER KIND OF COFFEE BREAK</p>
@@ -237,24 +233,24 @@
   <footer class="site-footer"><span>© Life Coffee & Slow Bar</span><span>Three friends. One passion. Every cup with care.</span><a href="#menu">Menu</a><a href="#story">Our story</a><a href="#location-title">Visit us</a></footer>
 
   <script>
-    const navMenuTrigger = document.getElementById('nav-menu-trigger');
-    const navMenuPanel = document.getElementById('nav-menu-panel');
-    function closeNavMenu() {
-      if (!navMenuTrigger || !navMenuPanel) return;
-      navMenuPanel.hidden = true;
-      navMenuTrigger.setAttribute('aria-expanded', 'false');
-      document.getElementById('nav-menu-dropdown')?.classList.remove('is-open');
+    const heroMenuTrigger = document.getElementById('hero-menu-trigger');
+    const heroMenuPanel = document.getElementById('hero-menu-panel');
+    function closeHeroMenu() {
+      if (!heroMenuTrigger || !heroMenuPanel) return;
+      heroMenuPanel.hidden = true;
+      heroMenuTrigger.setAttribute('aria-expanded', 'false');
+      document.getElementById('hero-menu-dropdown')?.classList.remove('is-open');
     }
-    navMenuTrigger?.addEventListener('click', () => {
-      const willOpen = navMenuPanel.hidden;
-      navMenuPanel.hidden = !willOpen;
-      navMenuTrigger.setAttribute('aria-expanded', String(willOpen));
-      document.getElementById('nav-menu-dropdown')?.classList.toggle('is-open', willOpen);
+    heroMenuTrigger?.addEventListener('click', () => {
+      const willOpen = heroMenuPanel.hidden;
+      heroMenuPanel.hidden = !willOpen;
+      heroMenuTrigger.setAttribute('aria-expanded', String(willOpen));
+      document.getElementById('hero-menu-dropdown')?.classList.toggle('is-open', willOpen);
     });
     document.addEventListener('click', event => {
-      if (!document.getElementById('nav-menu-dropdown')?.contains(event.target)) closeNavMenu();
+      if (!document.getElementById('hero-menu-dropdown')?.contains(event.target)) closeHeroMenu();
     });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeNavMenu(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeHeroMenu(); });
   </script>
   <script src="js/language.js"></script>
   <script src="js/menu.js"></script>
