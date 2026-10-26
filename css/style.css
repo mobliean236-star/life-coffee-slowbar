@@ -779,3 +779,25 @@ body{background:var(--bg);color:#282c24}
 /* Slightly larger corner logo */
 .hero-corner-logo{width:52px!important;height:52px!important;min-width:52px!important;max-width:52px!important;min-height:52px!important;max-height:52px!important}
 @media(max-width:520px){.hero-corner-logo{width:46px!important;height:46px!important;min-width:46px!important;max-width:46px!important;min-height:46px!important;max-height:46px!important}}
+
+/* Compact English / Lao language selector */
+.language-select{
+  appearance:none;
+  border:1px solid rgba(232,199,126,.55);
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  color:inherit;
+  font:inherit;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  padding:9px 12px;
+  min-width:58px;
+  cursor:pointer;
+  align-self:center;
+}
+.language-select option{color:#18382d;background:#fffaf0}
+@media(max-width:520px){
+  .language-select{padding:8px 9px;min-width:50px;font-size:11px}
+  .topbar{gap:8px}
+}
