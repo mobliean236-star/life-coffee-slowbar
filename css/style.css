@@ -934,3 +934,60 @@ button,input,select{font-family:"DM Sans",Arial,sans-serif}
 @media(max-width:760px){.hero{min-height:570px;min-height:70svh;background-position:58% center}.topbar{gap:10px;flex-wrap:wrap}.nav-links{order:3;width:100%;justify-content:center;padding-top:8px;border-top:1px solid #eee}.nav-order{padding:10px 12px!important}.experience-strip{padding:24px 12px;gap:8px}.experience-strip strong{font-size:10px}.experience-strip small{font-size:10px}.menu-container{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{padding:15px!important}.mood-grid,.values-grid,.steps-grid{grid-template-columns:1fr!important}.mood-card{min-height:210px}.site-footer{justify-content:center;text-align:center}}
 @media(max-width:420px){.menu-container{grid-template-columns:1fr}.hero{min-height:500px}.logo-box{padding:18px 15px}.hero-cta{font-size:9px!important}.categories{flex-wrap:wrap}.category-btn{padding:10px 12px!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+
+/* Final art direction: luxury editorial, image-led and restrained */
+:root{color-scheme:light!important;--gold:#111!important;--gold-light:#111!important;--bg:#fff!important;--panel:#fff!important;--muted:#777!important;--line:#e7e7e7!important}
+body{background:#fff!important;color:#171717!important;font-family:"DM Sans",Arial,sans-serif!important}
+.hero{min-height: min(82vh,780px)!important;min-height:min(82svh,780px)!important;background-image:linear-gradient(90deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.28) 55%,rgba(0,0,0,.18) 100%),url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=2200&q=90")!important;background-position:center 55%!important;background-size:cover!important;border:0!important;text-align:left!important;justify-content:flex-start!important;padding:clamp(32px,8vw,120px)!important}
+.hero-content{width:min(100%,1050px)!important;margin:0 auto!important}
+.hero-kicker{font-size:10px!important;letter-spacing:3px!important;color:#eee!important;margin-bottom:24px!important}
+.logo-box{border:0!important;border-left:2px solid #fff!important;padding:4px 0 4px 22px!important;background:transparent!important;backdrop-filter:none!important}
+.logo-box h1{font-size:clamp(44px,9vw,108px)!important;letter-spacing:clamp(4px,1vw,13px)!important;font-weight:600!important;line-height:1!important}
+.hero h3{font-family:"Playfair Display",Georgia,serif!important;font-size:clamp(24px,4vw,44px)!important;letter-spacing:0!important;margin:26px 0 10px!important}
+.hero-subtitle{font-size:15px!important;max-width:370px!important;color:#eee!important}
+.hero-cta{display:inline-flex!important;gap:18px!important;margin-top:20px!important;padding:16px 21px!important;background:#fff!important;color:#111!important;border:1px solid #fff!important}
+.topbar{padding:15px clamp(18px,6vw,92px)!important;min-height:76px!important;box-shadow:0 4px 20px rgba(0,0,0,.035)!important}
+.nav-brand{letter-spacing:2.5px!important}
+.nav-order{font-size:9px!important;padding:12px 16px!important}
+.signature-intro{padding:clamp(74px,10vw,132px) 24px!important;background:#fff!important;color:#111!important;border-bottom:1px solid #eee!important}
+.signature-intro:before,.signature-intro:after{display:none!important}
+.signature-mark{display:none!important}
+.signature-intro .eyebrow{color:#777!important;font-size:9px!important;letter-spacing:3px!important}
+.signature-intro h2{font-family:"Playfair Display",Georgia,serif!important;font-size:clamp(40px,7vw,78px)!important;line-height:1.08!important;letter-spacing:-1.8px!important;margin:18px auto!important}
+.signature-intro h2 em{color:#777!important}
+.signature-intro-inner>p:not(.eyebrow){font-size:15px!important;color:#686868!important;line-height:1.9!important}
+.signature-link{color:#111!important;border-color:#111!important}
+.experience-strip{background:#f7f7f5!important;border:0!important;padding:28px clamp(16px,7vw,100px)!important}
+.experience-strip>div{padding:6px 10px}
+.experience-strip strong{font-size:11px!important;letter-spacing:.3px}
+.experience-strip small{font-size:10px!important;letter-spacing:.2px}
+.editorial-feature{padding:clamp(70px,9vw,118px) clamp(18px,6vw,86px) 26px;background:#f7f7f5;color:#111}
+.editorial-heading{max-width:1100px;margin:0 auto 38px;display:grid;grid-template-columns:1.1fr .9fr;column-gap:60px;align-items:end}
+.editorial-heading .eyebrow{grid-column:1/-1;margin:0 0 15px}
+.editorial-heading h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(40px,6.5vw,76px);font-weight:400;line-height:1.05;letter-spacing:-1.6px;margin:0}
+.editorial-heading h2 em{font-weight:400;color:#777}
+.editorial-heading>p:last-child{max-width:350px;color:#666;font-size:13px;line-height:1.9;margin:0 0 6px}
+.editorial-cards{max-width:1250px;margin:auto;display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px}
+.editorial-card{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;min-height:420px;padding:23px;color:#fff!important;text-decoration:none;overflow:hidden;background:#222}
+.editorial-card:before{content:"";position:absolute;inset:0;z-index:-2;background-image:var(--feature-image);background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.7,.2,1);filter:saturate(.65)}
+.editorial-card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 35%,rgba(0,0,0,.76))}
+.editorial-card:hover:before{transform:scale(1.055)}
+.editorial-index{font-size:9px;letter-spacing:2px}
+.editorial-card-bottom{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.editorial-card-bottom strong{font-family:"Playfair Display",Georgia,serif;font-size:clamp(27px,3vw,38px);font-weight:400;line-height:1.1}
+.editorial-card-bottom small{font-size:11px;color:#eee}
+.editorial-card-bottom b{font-size:9px;letter-spacing:1.5px;font-weight:500;margin-top:12px;border-bottom:1px solid rgba(255,255,255,.65);padding-bottom:6px}
+.editorial-signoff{max-width:1250px;margin:24px auto 0;display:flex;justify-content:space-between;gap:20px;color:#777;font-size:9px;letter-spacing:1.7px}
+#menu{padding:clamp(72px,9vw,118px) 0!important}
+#menu h2,.mood-heading h2,.values-heading h2,.order-steps h2,.location h2{font-family:"Playfair Display",Georgia,serif!important;font-weight:400!important;letter-spacing:-1px!important}
+.menu-container{gap:14px!important}
+.card{transition:transform .35s ease,box-shadow .35s ease!important}
+.card:hover{transform:translateY(-4px)!important;box-shadow:0 15px 36px rgba(0,0,0,.075)!important}
+.mood-section{padding:75px 0!important}
+.mood-card{transition:transform .35s ease!important}
+.mood-card:hover{transform:translateY(-4px)!important}
+.values-section,.order-steps,.location{padding-top:80px!important;padding-bottom:80px!important}
+.site-footer{padding-top:30px!important;padding-bottom:30px!important}
+@media(max-width:800px){.hero{min-height:620px!important;min-height:76svh!important;padding:38px 24px!important}.editorial-heading{grid-template-columns:1fr;gap:16px}.editorial-heading>p:last-child{max-width:480px}.editorial-cards{grid-template-columns:1fr 1fr}.editorial-card-large{grid-column:1/-1;min-height:440px}.editorial-card{min-height:330px}.editorial-signoff{flex-direction:column;gap:8px}.topbar{position:relative!important}}
+@media(max-width:520px){.hero{background-position:60% center!important;min-height:570px!important;min-height:72svh!important}.hero-content{margin:0!important}.logo-box h1{font-size:clamp(40px,12vw,62px)!important;letter-spacing:3px!important}.hero h3{max-width:320px}.editorial-feature{padding:64px 16px 22px}.editorial-heading h2{font-size:44px}.editorial-cards{grid-template-columns:1fr}.editorial-card-large{grid-column:auto;min-height:360px}.editorial-card{min-height:330px}.experience-strip{grid-template-columns:1fr!important;gap:15px!important}.experience-strip>div{flex-direction:row;justify-content:center;gap:8px;flex-wrap:wrap}.experience-strip .strip-icon{display:none}.signature-intro{padding:70px 20px!important}.signature-intro h2{font-size:42px!important}}
