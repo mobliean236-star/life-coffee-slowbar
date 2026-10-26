@@ -1692,3 +1692,26 @@ body{background:#f7f5ef!important;color:#29382c!important;font-family:"DM Sans",
  .experience-strip small{margin-left:auto!important}
  .categories .category-btn{padding:10px 13px!important;font-size:10px!important}
 }
+
+
+/* Product cards: tasteful stock photography for a more visual menu */
+#coffee-menu .card{padding-top:22px!important}
+#coffee-menu .card:before{content:"";display:block;flex:0 0 148px;width:calc(100% + 44px);height:148px;margin:-22px -22px 4px;background-size:cover;background-position:center; background-color:#e6e8dd; border-radius:4px 4px 0 0}
+#coffee-menu .card:nth-child(1):before{background-image:url("https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(2):before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(3):before{background-image:url("https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(4):before{background-image:url("https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(5):before{background-image:url("https://images.unsplash.com/photo-1572286258217-215cf8e9f7b9?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(6):before{background-image:url("https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(7):before{background-image:url("https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(8):before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(9):before{background-image:url("https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(10):before{background-image:url("https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(11):before{background-image:url("https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(12):before{background-image:url("https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(13):before{background-image:url("https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(14):before{background-image:url("https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(15):before{background-image:url("https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(16):before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card:nth-child(17):before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
+@media(max-width:520px){#coffee-menu .card:before{height:160px;flex-basis:160px}}
