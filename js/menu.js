@@ -47,6 +47,7 @@ function showCategory(category) {
   visibleProducts.forEach(product => {
     const card = document.createElement("article");
     card.className = "card";
+    card.dataset.product = product.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
     if (product.best) {
       const badge = document.createElement("span");
