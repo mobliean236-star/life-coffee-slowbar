@@ -1529,3 +1529,34 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .hero-menu-panel a:hover{background:#edf1e8!important}
 @keyframes heroMenuDropIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:520px){.hero-menu-dropdown{margin-top:28px!important}.hero-title-sub{font-size:15px!important;letter-spacing:4px!important}}
+
+/* Refined hero menu: quiet, editorial, and easy to scan */
+.hero-menu-panel:not([hidden]){
+  width:min(300px,calc(100vw - 40px))!important;
+  margin-top:12px!important;
+  padding:8px!important;
+  border:1px solid rgba(67,90,67,.16)!important;
+  border-radius:12px!important;
+  background:#fbfaf5!important;
+  box-shadow:0 16px 38px rgba(15,28,19,.18)!important;
+}
+.hero-menu-panel a{
+  justify-content:space-between!important;
+  gap:20px!important;
+  padding:14px 15px!important;
+  border-radius:7px!important;
+  color:#354733!important;
+  font-size:13px!important;
+  font-weight:500!important;
+  letter-spacing:.15px!important;
+  transition:background .18s ease,color .18s ease!important;
+}
+.hero-menu-panel a span{
+  color:#7d8b76!important;
+  font-size:14px!important;
+  letter-spacing:0!important;
+  font-weight:400!important;
+}
+.hero-menu-panel a:hover{background:#e9eee4!important;color:#263d30!important}
+.hero-menu-panel a+a{border-top:1px solid #e9e9df!important}
+.hero-menu-panel a:hover+a{border-top-color:transparent!important}
