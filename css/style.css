@@ -1812,3 +1812,8 @@ body:before{
 
 /* User requested removal of the yellow/gold border line */
 body:after{border:0!important;box-shadow:none!important}
+
+
+/* User requested removal of Lao-inspired pattern decorations */
+body:before{background:none!important;opacity:0!important}
+.section-title:after,.section-heading:after{content:none!important;display:none!important}
