@@ -56,7 +56,27 @@ function showCategory(category) {
 
     const description = document.createElement("p");
     description.className = "product-description";
-    description.textContent = product.description;
+    const laoDescriptions = {
+      "A concentrated shot with a rich, lingering finish.":"ເອສເປຣສໂຊເຂັ້ມຂົ້ນ ມີລົດຊາດເຂັ້ມແລະຕິດປາກ.",
+      "Espresso softened with hot water. Clean, bold and balanced.":"ເອສເປຣສໂຊຜະສົມນ້ຳຮ້ອນ ລົດຊາດສະອາດ ເຂັ້ມ ແລະ ສົມດຸນ.",
+      "Espresso, steamed milk and a soft layer of foam.":"ເອສເປຣສໂຊຜະສົມນົມ ລົດຊາດນຸ່ມນວນ.",
+      "Smooth espresso blended with silky steamed milk.":"ເອສເປຣສໂຊລົດຊາດນຸ່ມ ຜະສົມກັບນົມ.",
+      "A comforting mix of espresso and chocolate.":"ການຜະສົມທີ່ລົງຕົວຂອງເອສເປຣສໂຊ ແລະ ຊັອກໂກແລັດ.",
+      "Silky latte with a gentle touch of vanilla.":"ລາເຕ້ນຸ່ມນວນ ພ້ອມກິ່ນວານິລາອ່ອນໆ.",
+      "Espresso and milk finished with buttery caramel notes.":"ເອສເປຣສໂຊ ແລະ ນົມ ພ້ອມລົດຄາຣາເມວຫອມຫວານ.",
+      "Bright citrus notes meet a refreshing coffee finish.":"ກິ່ນໝາກກ້ຽງສົດຊື່ນ ຜະສານກັບລົດຊາດກາເຟ.",
+      "Our coffee with a tropical, creamy coconut twist.":"ກາເຟພ້ອມລົດໝາກພ້າວເຂັ້ມຂຸ້ນແບບເຂດຮ້ອນ.",
+      "Earthy matcha paired with mellow coconut.":"ມັດຊະຫອມລະມຸນ ຄູ່ກັບໝາກພ້າວ.",
+      "Vibrant matcha whisked into creamy milk.":"ມັດຊະສີຂຽວສົດໃສ ຜະສົມກັບນົມ.",
+      "A fruity strawberry layer with distinctive matcha.":"ສະຕຣໍເບີຣີຫອມຫວານ ຄູ່ກັບມັດຊະທີ່ເປັນເອກະລັກ.",
+      "A light, soothing tea with a fresh finish.":"ຊາອ່ອນໆ ດື່ມສະບາຍ ແລະ ສົດຊື່ນ.",
+      "Thai tea with a lively citrus lift.":"ຊາໄທພ້ອມລົດໝາກນາວສົດຊື່ນ.",
+      "Classic Thai tea with a creamy, sweet finish.":"ຊານົມໄທຄລາສສິກ ຫອມມັນ ແລະ ຫວານນຸ່ມ.",
+      "Chocolate comfort with a bright strawberry twist.":"ຊັອກໂກແລັດເຂັ້ມຂຸ້ນ ພ້ອມລົດສະຕຣໍເບີຣີສົດໃສ.",
+      "A smooth, chocolatey drink for any moment.":"ເຄື່ອງດື່ມຊັອກໂກແລັດນຸ່ມນວນ ເໝາະກັບທຸກເວລາ.",
+      "Rich cocoa balanced with creamy coconut.":"ໂກໂກ້ເຂັ້ມຂົ້ນ ສົມດຸນກັບໝາກພ້າວນຸ່ມນວນ."
+    };
+    description.textContent = window.lifeCoffeeLanguage === "lo" ? (laoDescriptions[product.description] || product.description) : product.description;
 
     const price = document.createElement("p");
     price.className = "product-price";
@@ -64,7 +84,7 @@ function showCategory(category) {
 
     const add = document.createElement("button");
     add.type = "button";
-    add.textContent = "ADD";
+    add.textContent = window.lifeCoffeeLanguage === "lo" ? "ເພີ່ມ" : "ADD";
     add.addEventListener("click", () => openSugar(product.name, product.price));
 
     card.append(name, description, price, add);
@@ -76,3 +96,5 @@ document.getElementById("menu-search")?.addEventListener("input", event => { sea
 document.getElementById("menu-sort")?.addEventListener("change", event => { sortMode = event.target.value; showCategory(activeCategory); });
 
 showCategory("coffee");
+
+window.addEventListener("life-language-changed", () => showCategory(activeCategory));
