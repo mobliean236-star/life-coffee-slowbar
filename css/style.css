@@ -1715,3 +1715,17 @@ body{background:#f7f5ef!important;color:#29382c!important;font-family:"DM Sans",
 #coffee-menu .card:nth-child(16):before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
 #coffee-menu .card:nth-child(17):before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
 @media(max-width:520px){#coffee-menu .card:before{height:160px;flex-basis:160px}}
+
+
+/* Match menu photography to each drink, regardless of selected category */
+#coffee-menu .card[data-product="espresso"]:before{background-image:url("https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="americano"]:before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="cappuccino"]:before{background-image:url("https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="latte"]:before{background-image:url("https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="mocha"]:before{background-image:url("https://images.unsplash.com/photo-1572286258217-215cf8e9f7b9?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="vanilla-latte"]:before,#coffee-menu .card[data-product="caramel-latte"]:before{background-image:url("https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="orange-coffee"]:before,#coffee-menu .card[data-product="coconut-coffee"]:before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="matcha-coconut"]:before,#coffee-menu .card[data-product="matcha-latte"]:before,#coffee-menu .card[data-product="matcha-strawberry"]:before{background-image:url("https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="green-tea"]:before{background-image:url("https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="lemon-thai-tea"]:before,#coffee-menu .card[data-product="thai-milk-tea"]:before{background-image:url("https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80")}
+#coffee-menu .card[data-product="cocoa-strawberry"]:before,#coffee-menu .card[data-product="cocoa-latte"]:before,#coffee-menu .card[data-product="cocoa-coconut"]:before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
