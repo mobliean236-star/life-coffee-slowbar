@@ -1560,3 +1560,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .hero-menu-panel a:hover{background:#e9eee4!important;color:#263d30!important}
 .hero-menu-panel a+a{border-top:1px solid #e9e9df!important}
 .hero-menu-panel a:hover+a{border-top-color:transparent!important}
+
+/* Keep the hero menu dropdown opening downward below its trigger */
+.hero-menu-dropdown{position:relative!important;flex-direction:column!important;align-items:center!important}
+.hero-menu-panel:not([hidden]){
+  position:static!important;
+  top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;
+  transform:none!important;
+  margin-top:12px!important;
+  order:2!important;
+  align-self:center!important;
+  animation:heroMenuDropDown .22s ease-out!important;
+}
+@keyframes heroMenuDropDown{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
