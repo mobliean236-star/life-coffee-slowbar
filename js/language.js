@@ -1,5 +1,10 @@
 (() => {
   const translations = {
+    "A SLOWER KIND OF COFFEE BREAK":"ພັກຜ່ອນກັບກາເຟໃນຈັງຫວະສະບາຍໆ",
+    "A little moment, ":"ຊ່ວງເວລານ້ອຍໆ ",
+    "just for you.":"ສຳລັບທ່ານໂດຍສະເພາະ",
+    "Thoughtful coffee, refreshing favourites, and a warm welcome in Luang Prabang.":"ກາເຟທີ່ໃສ່ໃຈ ເມນູສົດຊື່ນ ແລະ ການຕ້ອນຮັບອົບອຸ່ນໃນຫຼວງພະບາງ",
+    "FIND YOUR NEXT FAVOURITE":"ຊອກຫາເມນູທີ່ມັກ",
     "SPECIALTY COFFEE · LUANG PRABANG":"ກາເຟພິເສດ · ຫຼວງພະບາງ",
     "Slow mornings. Better coffee.":"ເຊົ້າສະບາຍໆ ກັບກາເຟທີ່ດີກວ່າ",
     "Your little pause in the heart of Laos.":"ຊ່ວງເວລາພັກຜ່ອນນ້ອຍໆ ໃຈກາງລາວ",
