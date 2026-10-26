@@ -1833,3 +1833,13 @@ body:before{background:none!important;opacity:0!important}
   background:linear-gradient(rgba(18,30,23,.48),rgba(18,30,23,.66)),url("https://www.cerebrew.com/cdn/shop/articles/cerebrew-specialty-coffee-the-coffee-codex-when-coffee-tastes-burnt.png?v=1764759201") center 48%/cover no-repeat!important;
   background-color:#1e3225!important;
 }
+
+
+/* Show more of the coffee beans in the hero background */
+.hero{
+  background-size:100% auto!important;
+  background-position:center center!important;
+}
+@media(max-width:700px){
+  .hero{background-size:auto 100%!important;background-position:center center!important}
+}
