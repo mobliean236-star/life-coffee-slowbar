@@ -35,7 +35,11 @@ function showCategory(category) {
     button.setAttribute("aria-pressed", String(active));
   });
 
-  let visibleProducts = products.filter(product => product.category === category && (product.name + " " + product.description).toLowerCase().includes(searchTerm));
+  // When the customer searches, search across every category—not only the selected tab.
+  let visibleProducts = products.filter(product =>
+    (!searchTerm ? product.category === category : true) &&
+    (product.name + " " + product.description + " " + product.category).toLowerCase().includes(searchTerm)
+  );
   if (sortMode === "price-low") visibleProducts.sort((a,b) => a.price - b.price);
   if (sortMode === "price-high") visibleProducts.sort((a,b) => b.price - a.price);
   if (sortMode === "name") visibleProducts.sort((a,b) => a.name.localeCompare(b.name));
