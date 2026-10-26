@@ -1729,3 +1729,10 @@ body{background:#f7f5ef!important;color:#29382c!important;font-family:"DM Sans",
 #coffee-menu .card[data-product="green-tea"]:before{background-image:url("https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80")}
 #coffee-menu .card[data-product="lemon-thai-tea"]:before,#coffee-menu .card[data-product="thai-milk-tea"]:before{background-image:url("https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80")}
 #coffee-menu .card[data-product="cocoa-strawberry"]:before,#coffee-menu .card[data-product="cocoa-latte"]:before,#coffee-menu .card[data-product="cocoa-coconut"]:before{background-image:url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80")}
+
+
+/* User preference: keep the main title and drink cards free of added photography */
+.hero{background:linear-gradient(180deg,#344b38,#1e3225)!important}
+.hero:before{border-color:rgba(255,253,248,.24)!important}
+#coffee-menu .card:before{display:none!important;content:none!important}
+#coffee-menu .card{padding:25px 22px 20px!important}
