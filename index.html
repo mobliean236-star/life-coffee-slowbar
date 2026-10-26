@@ -112,11 +112,19 @@
         <h2 id="cart-title">Your Order</h2>
         <button type="button" class="cart-close" onclick="closeMobileCart()" aria-label="Close order panel">×</button>
       </div>
-      <p class="order-label">YOUR LITTLE RITUAL <strong id="order-number">ODR001</strong></p><p class="cart-intro">Build your perfect cup, then send it straight to our team.</p>
+      <div class="order-meta"><p class="order-label">YOUR LITTLE RITUAL <strong id="order-number">ODR001</strong></p><p class="cart-intro">Your favourites, all in one place.</p></div>
+      <div class="cart-browse">
+        <span class="cart-browse-label">NOT SURE WHAT TO TRY?</span>
+        <div class="cart-browse-links">
+          <button type="button" onclick="showCategory('coffee');document.getElementById('menu').scrollIntoView({behavior:'smooth'});closeMobileCart()">Coffee</button>
+          <button type="button" onclick="showCategory('matcha');document.getElementById('menu').scrollIntoView({behavior:'smooth'});closeMobileCart()">Matcha & tea</button>
+          <button type="button" onclick="showCategory('noncoffee');document.getElementById('menu').scrollIntoView({behavior:'smooth'});closeMobileCart()">Cocoa & more</button>
+        </div>
+      </div>
       <div id="cart-items" class="cart-items">Your cart is empty</div>
       <div class="cart-total-row"><span>Total</span><strong><span id="cart-total">0</span> Kip</strong></div>
       <button type="button" class="checkout-btn" onclick="openCustomer()">CONTINUE TO ORDER</button>
-      <p class="cart-note">Made fresh after you order · Sent directly to WhatsApp</p>
+      <p class="cart-note"><span aria-hidden="true">✦</span> Made fresh to order <span aria-hidden="true">·</span> Sent securely to our team</p>
     </aside>
   </main>
 
